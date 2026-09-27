@@ -1,0 +1,4 @@
+node_modules/
+tests/_test_backup.json
+__pycache__/
+.DS_Store

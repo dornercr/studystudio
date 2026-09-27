@@ -1,0 +1,14 @@
+@theme {
+  --color-canvas: #f7f7fb;
+  --color-ink: #282637;
+  --color-muted: #747184;
+  --color-line: #e9e7f1;
+  --color-brand: #7355df;
+  --color-brand-dark: #5d40c4;
+  --color-brand-soft: #f0ecfc;
+  --color-mint: #e9f6ee;
+  --color-mint-ink: #2d7655;
+  --color-peach: #fff0e8;
+  --color-peach-ink: #ad6035;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

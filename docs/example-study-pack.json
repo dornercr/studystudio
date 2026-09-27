@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "courses": [
+    {
+      "id": "my-new-course",
+      "title": "My new course",
+      "subtitle": "A personal study pack",
+      "description": "Replace these examples with your own course material.",
+      "provenance": "User-authored material. Replace this field with a clear source and authorship statement.",
+      "domains": [
+        { "id": "A", "title": "Getting started" }
+      ],
+      "topics": [
+        {
+          "id": "A.1",
+          "domain": "A",
+          "title": "Studying with this app",
+          "source": "",
+          "summary": "Each topic can include an outline, question-and-answer cards, and one multiple-choice scenario.",
+          "concepts": [
+            { "term": "Outline", "definition": "An overview and the key ideas for the selected topic." },
+            { "term": "Flashcard", "definition": "A question with a hidden answer that you reveal after attempting recall." }
+          ],
+          "takeaway": "Use the same topic in each mode to connect understanding, recall, and application.",
+          "cards": [
+            { "id": "A.1-card-1", "question": "What does a flashcard hide initially?", "answer": "The answer, so you can attempt recall first." }
+          ],
+          "scenario": {
+            "id": "A.1-scenario-1",
+            "prompt": "You have just read a topic and want to attempt recalling its definition before seeing it. Which mode fits?",
+            "options": ["Flashcards", "Source notes", "Backup export", "Curriculum import"],
+            "correctIndex": 0,
+            "explanation": "Flashcards show a question first and reveal the answer when you choose."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "passed": 18,
+  "tests": [
+    "Initial render: 104 topics / 220 cards / 104 scenarios",
+    "Previous, next, and keyboard outline navigation",
+    "Review marks, bookmarks, and personal notes saved",
+    "Search, empty results, domain filter, bookmarked filter",
+    "Flashcard flipping, confidence ratings, review deck, scope, shuffle",
+    "Scenario selection, grading, rationale, retry, immutable first-attempt score",
+    "Saved state restored on app initialization (Storage test double)",
+    "Provenance disclosure and dialog close",
+    "Curriculum dropdown and custom topic/card/scenario creation",
+    "Backup export includes custom material and progress",
+    "Study-pack import, new dropdown entry, HTML injection escaped",
+    "Invalid study pack rejected without losing current content",
+    "Backup restoration with confirmation",
+    "All nine domains render in outline and scenario modes",
+    "390px mobile layout, drawer, flashcard tap, no horizontal overflow",
+    "320px layout has no horizontal overflow",
+    "Storage-blocked mode remains usable with explicit warning",
+    "No JavaScript errors or network requests during main application tests"
+  ],
+  "javascriptErrors": [],
+  "networkRequests": [],
+  "storageNote": "Storage behavior tested with an in-memory Storage double; native file:// storage was not testable because this runner blocks file and loopback navigations."
+}
