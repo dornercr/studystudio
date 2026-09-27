@@ -1,0 +1,2887 @@
+{
+  "coverage": {
+    "chapters": 31,
+    "sectionLessons": 170,
+    "conceptCards": 661,
+    "glossaryEntries": 521,
+    "glossaryCards": 516,
+    "scenarios": 170,
+    "scope": "Section-level study companion with full-source lookup; not every paragraph, citation, exercise, or figure has a separately authored lesson or question. Source text is available for deeper study. The bibliography, epilogue, and indexes remain in the source reader."
+  },
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Definition and Characteristics of Applied Behavior Analysis",
+      "start": 2,
+      "end": 24,
+      "summaryStart": 23,
+      "part": 1,
+      "partTitle": "Introduction and Basic Concepts"
+    },
+    {
+      "number": 2,
+      "title": "Basic Concepts and Principles",
+      "start": 25,
+      "end": 46,
+      "summaryStart": 44,
+      "part": 1,
+      "partTitle": "Introduction and Basic Concepts"
+    },
+    {
+      "number": 3,
+      "title": "Selecting and Defining Target Behaviors",
+      "start": 48,
+      "end": 72,
+      "summaryStart": 71,
+      "part": 2,
+      "partTitle": "Selecting, Defining, and Measuring Behavior"
+    },
+    {
+      "number": 4,
+      "title": "Measuring Behavior",
+      "start": 73,
+      "end": 100,
+      "summaryStart": 98,
+      "part": 2,
+      "partTitle": "Selecting, Defining, and Measuring Behavior"
+    },
+    {
+      "number": 5,
+      "title": "Improving and Assessing the Quality of Behavioral Measurement",
+      "start": 101,
+      "end": 122,
+      "summaryStart": 120,
+      "part": 2,
+      "partTitle": "Selecting, Defining, and Measuring Behavior"
+    },
+    {
+      "number": 6,
+      "title": "Constructing and Interpreting Graphic Displays of Behavioral Data",
+      "start": 124,
+      "end": 154,
+      "summaryStart": 152,
+      "part": 3,
+      "partTitle": "Evaluating and Analyzing Behavior Change"
+    },
+    {
+      "number": 7,
+      "title": "Analyzing Behavior Change: Basic Assumptions and Strategies",
+      "start": 155,
+      "end": 170,
+      "summaryStart": 168,
+      "part": 3,
+      "partTitle": "Evaluating and Analyzing Behavior Change"
+    },
+    {
+      "number": 8,
+      "title": "Reversal and Multielement Designs",
+      "start": 171,
+      "end": 192,
+      "summaryStart": 191,
+      "part": 3,
+      "partTitle": "Evaluating and Analyzing Behavior Change"
+    },
+    {
+      "number": 9,
+      "title": "Multiple Baseline and Changing Criterion Designs",
+      "start": 193,
+      "end": 215,
+      "summaryStart": 213,
+      "part": 3,
+      "partTitle": "Evaluating and Analyzing Behavior Change"
+    },
+    {
+      "number": 10,
+      "title": "Planning and Evaluating Applied Behavior Analysis Research",
+      "start": 216,
+      "end": 250,
+      "summaryStart": 247,
+      "part": 3,
+      "partTitle": "Evaluating and Analyzing Behavior Change"
+    },
+    {
+      "number": 11,
+      "title": "Positive Reinforcement",
+      "start": 252,
+      "end": 286,
+      "summaryStart": 285,
+      "part": 4,
+      "partTitle": "Reinforcement"
+    },
+    {
+      "number": 12,
+      "title": "Negative Reinforcement",
+      "start": 287,
+      "end": 300,
+      "summaryStart": 299,
+      "part": 4,
+      "partTitle": "Reinforcement"
+    },
+    {
+      "number": 13,
+      "title": "Schedules of Reinforcement",
+      "start": 301,
+      "end": 324,
+      "summaryStart": 321,
+      "part": 4,
+      "partTitle": "Reinforcement"
+    },
+    {
+      "number": 14,
+      "title": "Positive Punishment",
+      "start": 326,
+      "end": 351,
+      "summaryStart": 350,
+      "part": 5,
+      "partTitle": "Punishment"
+    },
+    {
+      "number": 15,
+      "title": "Negative Punishment",
+      "start": 352,
+      "end": 370,
+      "summaryStart": 368,
+      "part": 5,
+      "partTitle": "Punishment"
+    },
+    {
+      "number": 16,
+      "title": "Motivating Operations",
+      "start": 372,
+      "end": 394,
+      "summaryStart": 392,
+      "part": 6,
+      "partTitle": "Antecedent Variables"
+    },
+    {
+      "number": 17,
+      "title": "Stimulus Control",
+      "start": 395,
+      "end": 410,
+      "summaryStart": 409,
+      "part": 6,
+      "partTitle": "Antecedent Variables"
+    },
+    {
+      "number": 18,
+      "title": "Verbal Behavior",
+      "start": 412,
+      "end": 450,
+      "summaryStart": 446,
+      "part": 7,
+      "partTitle": "Verbal Behavior"
+    },
+    {
+      "number": 19,
+      "title": "Equivalence-based Instruction",
+      "start": 452,
+      "end": 496,
+      "summaryStart": 494,
+      "part": 8,
+      "partTitle": "Developing New Behavior"
+    },
+    {
+      "number": 20,
+      "title": "Engineering Emergent Learning with Nonequivalence Relations",
+      "start": 497,
+      "end": 526,
+      "summaryStart": 525,
+      "part": 8,
+      "partTitle": "Developing New Behavior"
+    },
+    {
+      "number": 21,
+      "title": "Imitation, Modeling, and Observational Learning",
+      "start": 527,
+      "end": 539,
+      "summaryStart": 538,
+      "part": 8,
+      "partTitle": "Developing New Behavior"
+    },
+    {
+      "number": 22,
+      "title": "Shaping",
+      "start": 540,
+      "end": 556,
+      "summaryStart": 555,
+      "part": 8,
+      "partTitle": "Developing New Behavior"
+    },
+    {
+      "number": 23,
+      "title": "Chaining",
+      "start": 557,
+      "end": 580,
+      "summaryStart": 578,
+      "part": 8,
+      "partTitle": "Developing New Behavior"
+    },
+    {
+      "number": 24,
+      "title": "Extinction",
+      "start": 582,
+      "end": 594,
+      "summaryStart": 593,
+      "part": 9,
+      "partTitle": "Decreasing Behavior with Nonpunishment Procedures"
+    },
+    {
+      "number": 25,
+      "title": "Differential Reinforcement",
+      "start": 595,
+      "end": 612,
+      "summaryStart": 611,
+      "part": 9,
+      "partTitle": "Decreasing Behavior with Nonpunishment Procedures"
+    },
+    {
+      "number": 26,
+      "title": "Antecedent Interventions",
+      "start": 613,
+      "end": 626,
+      "summaryStart": 625,
+      "part": 9,
+      "partTitle": "Decreasing Behavior with Nonpunishment Procedures"
+    },
+    {
+      "number": 27,
+      "title": "Functional Behavior Assessment",
+      "start": 628,
+      "end": 654,
+      "summaryStart": 652,
+      "part": 10,
+      "partTitle": "Functional Assessment"
+    },
+    {
+      "number": 28,
+      "title": "Token Economy, Group Contingencies, and Contingency Contracting",
+      "start": 656,
+      "end": 680,
+      "summaryStart": 680,
+      "part": 11,
+      "partTitle": "Special Applications"
+    },
+    {
+      "number": 29,
+      "title": "Self-Management",
+      "start": 681,
+      "end": 712,
+      "summaryStart": 711,
+      "part": 11,
+      "partTitle": "Special Applications"
+    },
+    {
+      "number": 30,
+      "title": "Generalization and Maintenance of Behavior Change",
+      "start": 714,
+      "end": 756,
+      "summaryStart": 753,
+      "part": 12,
+      "partTitle": "Promoting Generalized Behavior Change"
+    },
+    {
+      "number": 31,
+      "title": "Ethical and Professional Responsibilities of Applied Behavior Analysts",
+      "start": 758,
+      "end": 784,
+      "summaryStart": 782,
+      "part": 13,
+      "partTitle": "Ethics"
+    }
+  ],
+  "sections": [
+    {
+      "id": "C01.01",
+      "title": "Science: Basic Characteristics and a Definition",
+      "chapter": 1,
+      "pages": {
+        "start": 3,
+        "end": 7,
+        "pdfStart": 21,
+        "pdfEnd": 25
+      },
+      "tasks": [
+        "A.1",
+        "A.2"
+      ]
+    },
+    {
+      "id": "C01.02",
+      "title": "A Brief History of Behavior Analysis",
+      "chapter": 1,
+      "pages": {
+        "start": 7,
+        "end": 16,
+        "pdfStart": 25,
+        "pdfEnd": 34
+      },
+      "tasks": [
+        "A.2",
+        "A.3",
+        "A.4"
+      ]
+    },
+    {
+      "id": "C01.03",
+      "title": "Characteristics of Applied Behavior Analysis",
+      "chapter": 1,
+      "pages": {
+        "start": 16,
+        "end": 19,
+        "pdfStart": 34,
+        "pdfEnd": 37
+      },
+      "tasks": [
+        "A.5"
+      ]
+    },
+    {
+      "id": "C01.04",
+      "title": "A Definition of Applied Behavior Analysis",
+      "chapter": 1,
+      "pages": {
+        "start": 19,
+        "end": 23,
+        "pdfStart": 37,
+        "pdfEnd": 41
+      },
+      "tasks": [
+        "A.4",
+        "A.5"
+      ]
+    },
+    {
+      "id": "C02.01",
+      "title": "Behavior",
+      "chapter": 2,
+      "pages": {
+        "start": 26,
+        "end": 27,
+        "pdfStart": 44,
+        "pdfEnd": 45
+      },
+      "tasks": [
+        "B.1"
+      ]
+    },
+    {
+      "id": "C02.02",
+      "title": "Environment",
+      "chapter": 2,
+      "pages": {
+        "start": 27,
+        "end": 28,
+        "pdfStart": 45,
+        "pdfEnd": 46
+      },
+      "tasks": [
+        "B.2",
+        "B.6"
+      ]
+    },
+    {
+      "id": "C02.03",
+      "title": "Respondent Behavior",
+      "chapter": 2,
+      "pages": {
+        "start": 28,
+        "end": 32,
+        "pdfStart": 46,
+        "pdfEnd": 50
+      },
+      "tasks": [
+        "B.3",
+        "B.11"
+      ]
+    },
+    {
+      "id": "C02.04",
+      "title": "Operant Behavior",
+      "chapter": 2,
+      "pages": {
+        "start": 32,
+        "end": 41,
+        "pdfStart": 50,
+        "pdfEnd": 59
+      },
+      "tasks": [
+        "B.3",
+        "B.4",
+        "B.5",
+        "B.6",
+        "B.7",
+        "B.8",
+        "B.12",
+        "A.2"
+      ]
+    },
+    {
+      "id": "C02.05",
+      "title": "Recognizing the Complexity of Human Behavior",
+      "chapter": 2,
+      "pages": {
+        "start": 41,
+        "end": 44,
+        "pdfStart": 59,
+        "pdfEnd": 62
+      },
+      "tasks": [
+        "B.18",
+        "B.20",
+        "B.21"
+      ]
+    },
+    {
+      "id": "C03.01",
+      "title": "Role of Assessment in Applied Behavior Analysis",
+      "chapter": 3,
+      "pages": {
+        "start": 48,
+        "end": 50,
+        "pdfStart": 66,
+        "pdfEnd": 68
+      },
+      "tasks": [
+        "F.1",
+        "F.7"
+      ]
+    },
+    {
+      "id": "C03.02",
+      "title": "Assessment Methods Used by Behavior Analysts",
+      "chapter": 3,
+      "pages": {
+        "start": 50,
+        "end": 59,
+        "pdfStart": 68,
+        "pdfEnd": 77
+      },
+      "tasks": [
+        "C.2",
+        "F.3",
+        "F.5"
+      ]
+    },
+    {
+      "id": "C03.03",
+      "title": "Assessing the Social Significance of Potential Target Behaviors",
+      "chapter": 3,
+      "pages": {
+        "start": 59,
+        "end": 64,
+        "pdfStart": 77,
+        "pdfEnd": 82
+      },
+      "tasks": [
+        "F.8",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C03.04",
+      "title": "Prioritizing Target Behaviors",
+      "chapter": 3,
+      "pages": {
+        "start": 64,
+        "end": 67,
+        "pdfStart": 82,
+        "pdfEnd": 85
+      },
+      "tasks": [
+        "F.8",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C03.05",
+      "title": "Defining Target Behaviors",
+      "chapter": 3,
+      "pages": {
+        "start": 67,
+        "end": 70,
+        "pdfStart": 85,
+        "pdfEnd": 88
+      },
+      "tasks": [
+        "C.1",
+        "H.1"
+      ]
+    },
+    {
+      "id": "C03.06",
+      "title": "Setting Criteria for Behavior Change",
+      "chapter": 3,
+      "pages": {
+        "start": 70,
+        "end": 71,
+        "pdfStart": 88,
+        "pdfEnd": 89
+      },
+      "tasks": [
+        "H.1",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C04.01",
+      "title": "Definition and Functions of Measurement in Applied Behavior Analysis",
+      "chapter": 4,
+      "pages": {
+        "start": 74,
+        "end": 76,
+        "pdfStart": 92,
+        "pdfEnd": 94
+      },
+      "tasks": [
+        "C.2",
+        "C.9"
+      ]
+    },
+    {
+      "id": "C04.02",
+      "title": "Measurable Dimensions of Behavior",
+      "chapter": 4,
+      "pages": {
+        "start": 76,
+        "end": 83,
+        "pdfStart": 94,
+        "pdfEnd": 101
+      },
+      "tasks": [
+        "C.3",
+        "C.4",
+        "C.7"
+      ]
+    },
+    {
+      "id": "C04.03",
+      "title": "Methods for Measuring Behavior",
+      "chapter": 4,
+      "pages": {
+        "start": 83,
+        "end": 93,
+        "pdfStart": 101,
+        "pdfEnd": 111
+      },
+      "tasks": [
+        "C.3",
+        "C.4",
+        "C.5",
+        "C.6"
+      ]
+    },
+    {
+      "id": "C04.04",
+      "title": "Measuring Behavior by Permanent Products",
+      "chapter": 4,
+      "pages": {
+        "start": 93,
+        "end": 96,
+        "pdfStart": 111,
+        "pdfEnd": 114
+      },
+      "tasks": [
+        "C.2",
+        "C.9"
+      ]
+    },
+    {
+      "id": "C04.05",
+      "title": "Measurement Tools",
+      "chapter": 4,
+      "pages": {
+        "start": 96,
+        "end": 97,
+        "pdfStart": 114,
+        "pdfEnd": 115
+      },
+      "tasks": [
+        "C.9"
+      ]
+    },
+    {
+      "id": "C04.06",
+      "title": "Selecting a Measurement Method",
+      "chapter": 4,
+      "pages": {
+        "start": 97,
+        "end": 98,
+        "pdfStart": 115,
+        "pdfEnd": 116
+      },
+      "tasks": [
+        "C.5",
+        "C.9"
+      ]
+    },
+    {
+      "id": "C05.01",
+      "title": "Indicators of Trustworthy Measurement",
+      "chapter": 5,
+      "pages": {
+        "start": 102,
+        "end": 103,
+        "pdfStart": 120,
+        "pdfEnd": 121
+      },
+      "tasks": [
+        "C.8"
+      ]
+    },
+    {
+      "id": "C05.02",
+      "title": "Threats to Valid Measurement",
+      "chapter": 5,
+      "pages": {
+        "start": 103,
+        "end": 106,
+        "pdfStart": 121,
+        "pdfEnd": 124
+      },
+      "tasks": [
+        "C.8",
+        "C.9"
+      ]
+    },
+    {
+      "id": "C05.03",
+      "title": "Threats to Accurate and Reliable Measurement",
+      "chapter": 5,
+      "pages": {
+        "start": 106,
+        "end": 108,
+        "pdfStart": 124,
+        "pdfEnd": 126
+      },
+      "tasks": [
+        "C.8"
+      ]
+    },
+    {
+      "id": "C05.04",
+      "title": "Assessing the Accuracy and Reliability of Behavioral Measurement",
+      "chapter": 5,
+      "pages": {
+        "start": 108,
+        "end": 111,
+        "pdfStart": 126,
+        "pdfEnd": 129
+      },
+      "tasks": [
+        "C.8"
+      ]
+    },
+    {
+      "id": "C05.05",
+      "title": "Using Interobserver Agreement to Assess Behavioral Measurement",
+      "chapter": 5,
+      "pages": {
+        "start": 111,
+        "end": 120,
+        "pdfStart": 129,
+        "pdfEnd": 138
+      },
+      "tasks": [
+        "C.8"
+      ]
+    },
+    {
+      "id": "C06.01",
+      "title": "Purpose and Benefits of Graphic Displays of Behavioral Data",
+      "chapter": 6,
+      "pages": {
+        "start": 125,
+        "end": 127,
+        "pdfStart": 143,
+        "pdfEnd": 145
+      },
+      "tasks": [
+        "C.10",
+        "C.11"
+      ]
+    },
+    {
+      "id": "C06.02",
+      "title": "Graphs Used by Applied Behavior Analysts",
+      "chapter": 6,
+      "pages": {
+        "start": 127,
+        "end": 140,
+        "pdfStart": 145,
+        "pdfEnd": 158
+      },
+      "tasks": [
+        "C.10"
+      ]
+    },
+    {
+      "id": "C06.03",
+      "title": "Constructing Line Graphs",
+      "chapter": 6,
+      "pages": {
+        "start": 140,
+        "end": 145,
+        "pdfStart": 158,
+        "pdfEnd": 163
+      },
+      "tasks": [
+        "C.10"
+      ]
+    },
+    {
+      "id": "C06.04",
+      "title": "Interpreting Graphically Displayed Behavioral Data",
+      "chapter": 6,
+      "pages": {
+        "start": 145,
+        "end": 152,
+        "pdfStart": 163,
+        "pdfEnd": 170
+      },
+      "tasks": [
+        "C.11",
+        "D.6"
+      ]
+    },
+    {
+      "id": "C07.01",
+      "title": "Concepts and Assumptions Underlying the Analysis of Behavior",
+      "chapter": 7,
+      "pages": {
+        "start": 156,
+        "end": 158,
+        "pdfStart": 174,
+        "pdfEnd": 176
+      },
+      "tasks": [
+        "A.1",
+        "A.2",
+        "D.1",
+        "D.2",
+        "D.4"
+      ]
+    },
+    {
+      "id": "C07.02",
+      "title": "Components of Applied Behavior Analysis Experiments",
+      "chapter": 7,
+      "pages": {
+        "start": 158,
+        "end": 162,
+        "pdfStart": 176,
+        "pdfEnd": 180
+      },
+      "tasks": [
+        "D.1",
+        "D.3",
+        "D.4",
+        "D.8"
+      ]
+    },
+    {
+      "id": "C07.03",
+      "title": "Steady State Strategy and Baseline Logic",
+      "chapter": 7,
+      "pages": {
+        "start": 162,
+        "end": 168,
+        "pdfStart": 180,
+        "pdfEnd": 186
+      },
+      "tasks": [
+        "D.4",
+        "D.6"
+      ]
+    },
+    {
+      "id": "C08.01",
+      "title": "Reversal Design",
+      "chapter": 8,
+      "pages": {
+        "start": 171,
+        "end": 180,
+        "pdfStart": 189,
+        "pdfEnd": 198
+      },
+      "tasks": [
+        "D.4",
+        "D.6",
+        "D.7",
+        "D.9"
+      ]
+    },
+    {
+      "id": "C08.02",
+      "title": "Multielement Design",
+      "chapter": 8,
+      "pages": {
+        "start": 180,
+        "end": 191,
+        "pdfStart": 198,
+        "pdfEnd": 209
+      },
+      "tasks": [
+        "D.6",
+        "D.7",
+        "D.8",
+        "D.9"
+      ]
+    },
+    {
+      "id": "C09.01",
+      "title": "Multiple Baseline Design",
+      "chapter": 9,
+      "pages": {
+        "start": 193,
+        "end": 209,
+        "pdfStart": 211,
+        "pdfEnd": 227
+      },
+      "tasks": [
+        "D.4",
+        "D.6",
+        "D.7",
+        "D.9"
+      ]
+    },
+    {
+      "id": "C09.02",
+      "title": "Changing Criterion Design",
+      "chapter": 9,
+      "pages": {
+        "start": 209,
+        "end": 213,
+        "pdfStart": 227,
+        "pdfEnd": 231
+      },
+      "tasks": [
+        "D.6",
+        "D.7",
+        "D.9"
+      ]
+    },
+    {
+      "id": "C10.01",
+      "title": "Importance of the Individual Subject in Behavior Analysis Research",
+      "chapter": 10,
+      "pages": {
+        "start": 216,
+        "end": 220,
+        "pdfStart": 234,
+        "pdfEnd": 238
+      },
+      "tasks": [
+        "D.4",
+        "D.5"
+      ]
+    },
+    {
+      "id": "C10.02",
+      "title": "Importance of Flexibility in Experimental Design",
+      "chapter": 10,
+      "pages": {
+        "start": 220,
+        "end": 224,
+        "pdfStart": 238,
+        "pdfEnd": 242
+      },
+      "tasks": [
+        "D.8",
+        "D.9"
+      ]
+    },
+    {
+      "id": "C10.03",
+      "title": "Internal Validity: Controlling Potential Sources of Confounding in Experimental Design",
+      "chapter": 10,
+      "pages": {
+        "start": 224,
+        "end": 230,
+        "pdfStart": 242,
+        "pdfEnd": 248
+      },
+      "tasks": [
+        "D.2",
+        "D.3",
+        "C.12",
+        "H.6"
+      ]
+    },
+    {
+      "id": "C10.04",
+      "title": "Social Validity: Assessing the Applied Value of Behavior Changes and the Treatments That Accomplish Them",
+      "chapter": 10,
+      "pages": {
+        "start": 230,
+        "end": 237,
+        "pdfStart": 248,
+        "pdfEnd": 255
+      },
+      "tasks": [
+        "F.8",
+        "H.2",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C10.05",
+      "title": "External Validity: Replicating Experiments to Determine the Generality of Research Findings",
+      "chapter": 10,
+      "pages": {
+        "start": 237,
+        "end": 241,
+        "pdfStart": 255,
+        "pdfEnd": 259
+      },
+      "tasks": [
+        "D.2",
+        "D.4"
+      ]
+    },
+    {
+      "id": "C10.06",
+      "title": "Evaluating Applied Behavior Analysis Research",
+      "chapter": 10,
+      "pages": {
+        "start": 241,
+        "end": 247,
+        "pdfStart": 259,
+        "pdfEnd": 265
+      },
+      "tasks": [
+        "D.6",
+        "H.2",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C11.01",
+      "title": "Positive Reinforcement Defined",
+      "chapter": 11,
+      "pages": {
+        "start": 253,
+        "end": 263,
+        "pdfStart": 271,
+        "pdfEnd": 281
+      },
+      "tasks": [
+        "B.4",
+        "B.6",
+        "G.1"
+      ]
+    },
+    {
+      "id": "C11.02",
+      "title": "Classifying Reinforcers",
+      "chapter": 11,
+      "pages": {
+        "start": 263,
+        "end": 268,
+        "pdfStart": 281,
+        "pdfEnd": 286
+      },
+      "tasks": [
+        "B.7",
+        "G.4"
+      ]
+    },
+    {
+      "id": "C11.03",
+      "title": "Identifying Potential Reinforcers",
+      "chapter": 11,
+      "pages": {
+        "start": 268,
+        "end": 280,
+        "pdfStart": 286,
+        "pdfEnd": 298
+      },
+      "tasks": [
+        "F.4",
+        "G.1"
+      ]
+    },
+    {
+      "id": "C11.04",
+      "title": "Control Procedures for Positive Reinforcement",
+      "chapter": 11,
+      "pages": {
+        "start": 280,
+        "end": 282,
+        "pdfStart": 298,
+        "pdfEnd": 300
+      },
+      "tasks": [
+        "D.8",
+        "G.1"
+      ]
+    },
+    {
+      "id": "C11.05",
+      "title": "Using Reinforcement Effectively",
+      "chapter": 11,
+      "pages": {
+        "start": 282,
+        "end": 285,
+        "pdfStart": 300,
+        "pdfEnd": 303
+      },
+      "tasks": [
+        "G.1",
+        "G.4",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C12.01",
+      "title": "Definition of Negative Reinforcement",
+      "chapter": 12,
+      "pages": {
+        "start": 287,
+        "end": 289,
+        "pdfStart": 305,
+        "pdfEnd": 307
+      },
+      "tasks": [
+        "B.4",
+        "G.1"
+      ]
+    },
+    {
+      "id": "C12.02",
+      "title": "Escape and Avoidance Contingencies",
+      "chapter": 12,
+      "pages": {
+        "start": 289,
+        "end": 291,
+        "pdfStart": 307,
+        "pdfEnd": 309
+      },
+      "tasks": [
+        "B.4"
+      ]
+    },
+    {
+      "id": "C12.03",
+      "title": "Characteristics of Negative Reinforcement",
+      "chapter": 12,
+      "pages": {
+        "start": 291,
+        "end": 292,
+        "pdfStart": 309,
+        "pdfEnd": 310
+      },
+      "tasks": [
+        "B.4",
+        "B.6",
+        "B.7"
+      ]
+    },
+    {
+      "id": "C12.04",
+      "title": "Applications of Negative Reinforcement",
+      "chapter": 12,
+      "pages": {
+        "start": 292,
+        "end": 298,
+        "pdfStart": 310,
+        "pdfEnd": 316
+      },
+      "tasks": [
+        "G.1",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C12.05",
+      "title": "Changes in Teacher and Caregiver Responding as a Function of Negative Reinforcement",
+      "chapter": 12,
+      "pages": {
+        "start": 298,
+        "end": 299,
+        "pdfStart": 316,
+        "pdfEnd": 317
+      },
+      "tasks": [
+        "B.4",
+        "I.6"
+      ]
+    },
+    {
+      "id": "C12.06",
+      "title": "Ethical Considerations in Using Negative Reinforcement",
+      "chapter": 12,
+      "pages": {
+        "start": 299,
+        "end": 299,
+        "pdfStart": 317,
+        "pdfEnd": 317
+      },
+      "tasks": [
+        "E.2",
+        "G.18",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C13.01",
+      "title": "Intermittent Reinforcement",
+      "chapter": 13,
+      "pages": {
+        "start": 301,
+        "end": 302,
+        "pdfStart": 319,
+        "pdfEnd": 320
+      },
+      "tasks": [
+        "B.9",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C13.02",
+      "title": "Defining Basic Intermittent Schedules of Reinforcement",
+      "chapter": 13,
+      "pages": {
+        "start": 302,
+        "end": 303,
+        "pdfStart": 320,
+        "pdfEnd": 321
+      },
+      "tasks": [
+        "B.9"
+      ]
+    },
+    {
+      "id": "C13.03",
+      "title": "Schedule Effects and Consistency of Performance",
+      "chapter": 13,
+      "pages": {
+        "start": 303,
+        "end": 309,
+        "pdfStart": 321,
+        "pdfEnd": 327
+      },
+      "tasks": [
+        "B.9",
+        "C.11"
+      ]
+    },
+    {
+      "id": "C13.04",
+      "title": "Thinning Intermittent Reinforcement",
+      "chapter": 13,
+      "pages": {
+        "start": 309,
+        "end": 310,
+        "pdfStart": 327,
+        "pdfEnd": 328
+      },
+      "tasks": [
+        "G.16",
+        "H.5"
+      ]
+    },
+    {
+      "id": "C13.05",
+      "title": "Variations on Basic Intermittent Schedules of Reinforcement",
+      "chapter": 13,
+      "pages": {
+        "start": 310,
+        "end": 315,
+        "pdfStart": 328,
+        "pdfEnd": 333
+      },
+      "tasks": [
+        "B.9",
+        "G.2",
+        "G.15"
+      ]
+    },
+    {
+      "id": "C13.06",
+      "title": "Compound Schedules of Reinforcement",
+      "chapter": 13,
+      "pages": {
+        "start": 315,
+        "end": 320,
+        "pdfStart": 333,
+        "pdfEnd": 338
+      },
+      "tasks": [
+        "B.10",
+        "B.23"
+      ]
+    },
+    {
+      "id": "C13.07",
+      "title": "Perspectives on Using Schedules of Reinforcement in Applied Settings",
+      "chapter": 13,
+      "pages": {
+        "start": 320,
+        "end": 321,
+        "pdfStart": 338,
+        "pdfEnd": 339
+      },
+      "tasks": [
+        "B.9",
+        "B.10"
+      ]
+    },
+    {
+      "id": "C14.01",
+      "title": "Definition and Characteristics of Punishment",
+      "chapter": 14,
+      "pages": {
+        "start": 327,
+        "end": 331,
+        "pdfStart": 345,
+        "pdfEnd": 349
+      },
+      "tasks": [
+        "B.5",
+        "B.8"
+      ]
+    },
+    {
+      "id": "C14.02",
+      "title": "Factors That Influence the Effectiveness of Punishment",
+      "chapter": 14,
+      "pages": {
+        "start": 331,
+        "end": 336,
+        "pdfStart": 349,
+        "pdfEnd": 354
+      },
+      "tasks": [
+        "G.17"
+      ]
+    },
+    {
+      "id": "C14.03",
+      "title": "Possible Side Effects and Problems with Punishment",
+      "chapter": 14,
+      "pages": {
+        "start": 336,
+        "end": 338,
+        "pdfStart": 354,
+        "pdfEnd": 356
+      },
+      "tasks": [
+        "G.18",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C14.04",
+      "title": "Positive Punishment Interventions",
+      "chapter": 14,
+      "pages": {
+        "start": 338,
+        "end": 343,
+        "pdfStart": 356,
+        "pdfEnd": 361
+      },
+      "tasks": [
+        "G.17"
+      ]
+    },
+    {
+      "id": "C14.05",
+      "title": "Guidelines for Using Punishment",
+      "chapter": 14,
+      "pages": {
+        "start": 343,
+        "end": 346,
+        "pdfStart": 361,
+        "pdfEnd": 364
+      },
+      "tasks": [
+        "G.17",
+        "H.4",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C14.06",
+      "title": "Ethical Considerations Regarding the Use of Punishment",
+      "chapter": 14,
+      "pages": {
+        "start": 346,
+        "end": 349,
+        "pdfStart": 364,
+        "pdfEnd": 367
+      },
+      "tasks": [
+        "E.2",
+        "G.17",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C14.07",
+      "title": "Concluding Perspectives",
+      "chapter": 14,
+      "pages": {
+        "start": 349,
+        "end": 350,
+        "pdfStart": 367,
+        "pdfEnd": 368
+      },
+      "tasks": [
+        "G.17",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C15.01",
+      "title": "Time-Out from Positive Reinforcement Defined",
+      "chapter": 15,
+      "pages": {
+        "start": 353,
+        "end": 354,
+        "pdfStart": 371,
+        "pdfEnd": 372
+      },
+      "tasks": [
+        "B.5",
+        "G.17"
+      ]
+    },
+    {
+      "id": "C15.02",
+      "title": "Time-Out Tactics for Applied Settings",
+      "chapter": 15,
+      "pages": {
+        "start": 354,
+        "end": 356,
+        "pdfStart": 372,
+        "pdfEnd": 374
+      },
+      "tasks": [
+        "G.17"
+      ]
+    },
+    {
+      "id": "C15.03",
+      "title": "Using Time-Out Effectively",
+      "chapter": 15,
+      "pages": {
+        "start": 356,
+        "end": 361,
+        "pdfStart": 374,
+        "pdfEnd": 379
+      },
+      "tasks": [
+        "G.17",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C15.04",
+      "title": "Response Cost Defined",
+      "chapter": 15,
+      "pages": {
+        "start": 361,
+        "end": 365,
+        "pdfStart": 379,
+        "pdfEnd": 383
+      },
+      "tasks": [
+        "B.5",
+        "G.17"
+      ]
+    },
+    {
+      "id": "C15.05",
+      "title": "Response Cost Methods",
+      "chapter": 15,
+      "pages": {
+        "start": 365,
+        "end": 366,
+        "pdfStart": 383,
+        "pdfEnd": 384
+      },
+      "tasks": [
+        "G.17"
+      ]
+    },
+    {
+      "id": "C15.06",
+      "title": "Using Response Cost Effectively",
+      "chapter": 15,
+      "pages": {
+        "start": 366,
+        "end": 367,
+        "pdfStart": 384,
+        "pdfEnd": 385
+      },
+      "tasks": [
+        "G.17",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C15.07",
+      "title": "Response Cost Considerations",
+      "chapter": 15,
+      "pages": {
+        "start": 367,
+        "end": 368,
+        "pdfStart": 385,
+        "pdfEnd": 386
+      },
+      "tasks": [
+        "G.18",
+        "H.4",
+        "H.6"
+      ]
+    },
+    {
+      "id": "C16.01",
+      "title": "Definition and Characteristics of Motivating Operations",
+      "chapter": 16,
+      "pages": {
+        "start": 373,
+        "end": 378,
+        "pdfStart": 391,
+        "pdfEnd": 396
+      },
+      "tasks": [
+        "B.16",
+        "G.5"
+      ]
+    },
+    {
+      "id": "C16.02",
+      "title": "Distinguishing Between MOs and SDs",
+      "chapter": 16,
+      "pages": {
+        "start": 378,
+        "end": 379,
+        "pdfStart": 396,
+        "pdfEnd": 397
+      },
+      "tasks": [
+        "B.17"
+      ]
+    },
+    {
+      "id": "C16.03",
+      "title": "Unconditioned Motivating Operations (UMOs)",
+      "chapter": 16,
+      "pages": {
+        "start": 379,
+        "end": 381,
+        "pdfStart": 397,
+        "pdfEnd": 399
+      },
+      "tasks": [
+        "B.16"
+      ]
+    },
+    {
+      "id": "C16.04",
+      "title": "MOs for Punishment",
+      "chapter": 16,
+      "pages": {
+        "start": 381,
+        "end": 382,
+        "pdfStart": 399,
+        "pdfEnd": 400
+      },
+      "tasks": [
+        "B.8",
+        "B.16"
+      ]
+    },
+    {
+      "id": "C16.05",
+      "title": "Multiple Effects of MOs",
+      "chapter": 16,
+      "pages": {
+        "start": 382,
+        "end": 383,
+        "pdfStart": 400,
+        "pdfEnd": 401
+      },
+      "tasks": [
+        "B.16",
+        "B.17"
+      ]
+    },
+    {
+      "id": "C16.06",
+      "title": "Conditioned Motivating Operations (CMOs)",
+      "chapter": 16,
+      "pages": {
+        "start": 383,
+        "end": 391,
+        "pdfStart": 401,
+        "pdfEnd": 409
+      },
+      "tasks": [
+        "B.16",
+        "G.5"
+      ]
+    },
+    {
+      "id": "C16.07",
+      "title": "Relevance of MOs to the Generality of Treatment Effects",
+      "chapter": 16,
+      "pages": {
+        "start": 391,
+        "end": 391,
+        "pdfStart": 409,
+        "pdfEnd": 409
+      },
+      "tasks": [
+        "B.14",
+        "B.15",
+        "G.15",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C16.08",
+      "title": "Relevance of MOs to Applied Behavior Analysis",
+      "chapter": 16,
+      "pages": {
+        "start": 391,
+        "end": 392,
+        "pdfStart": 409,
+        "pdfEnd": 410
+      },
+      "tasks": [
+        "B.16",
+        "F.4",
+        "F.6",
+        "G.5"
+      ]
+    },
+    {
+      "id": "C17.01",
+      "title": "Stimulus Control: Basic Concepts and Processes",
+      "chapter": 17,
+      "pages": {
+        "start": 396,
+        "end": 399,
+        "pdfStart": 414,
+        "pdfEnd": 417
+      },
+      "tasks": [
+        "B.12",
+        "B.13",
+        "B.14",
+        "B.17"
+      ]
+    },
+    {
+      "id": "C17.02",
+      "title": "Developing Stimulus Control",
+      "chapter": 17,
+      "pages": {
+        "start": 399,
+        "end": 405,
+        "pdfStart": 417,
+        "pdfEnd": 423
+      },
+      "tasks": [
+        "B.13",
+        "G.6",
+        "G.7"
+      ]
+    },
+    {
+      "id": "C17.03",
+      "title": "Transferring Stimulus Control",
+      "chapter": 17,
+      "pages": {
+        "start": 405,
+        "end": 409,
+        "pdfStart": 423,
+        "pdfEnd": 427
+      },
+      "tasks": [
+        "G.7",
+        "G.8"
+      ]
+    },
+    {
+      "id": "C18.01",
+      "title": "Skinner's (1957) Analysis of Verbal Behavior",
+      "chapter": 18,
+      "pages": {
+        "start": 413,
+        "end": 417,
+        "pdfStart": 431,
+        "pdfEnd": 435
+      },
+      "tasks": [
+        "B.19"
+      ]
+    },
+    {
+      "id": "C18.02",
+      "title": "The Verbal Operants and Listener Behavior in More Detail",
+      "chapter": 18,
+      "pages": {
+        "start": 417,
+        "end": 430,
+        "pdfStart": 435,
+        "pdfEnd": 448
+      },
+      "tasks": [
+        "B.19",
+        "B.20",
+        "B.21"
+      ]
+    },
+    {
+      "id": "C18.03",
+      "title": "Listener Behavior",
+      "chapter": 18,
+      "pages": {
+        "start": 430,
+        "end": 433,
+        "pdfStart": 448,
+        "pdfEnd": 451
+      },
+      "tasks": [
+        "B.19",
+        "G.6"
+      ]
+    },
+    {
+      "id": "C18.04",
+      "title": "Autoclitic Verbal Behavior",
+      "chapter": 18,
+      "pages": {
+        "start": 433,
+        "end": 434,
+        "pdfStart": 451,
+        "pdfEnd": 452
+      },
+      "tasks": [
+        "B.19",
+        "B.20"
+      ]
+    },
+    {
+      "id": "C18.05",
+      "title": "Applications of Skinner's (1957) Analysis of Verbal Behavior",
+      "chapter": 18,
+      "pages": {
+        "start": 434,
+        "end": 435,
+        "pdfStart": 452,
+        "pdfEnd": 453
+      },
+      "tasks": [
+        "F.3",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C18.06",
+      "title": "Applications to Language Assessment and Intervention",
+      "chapter": 18,
+      "pages": {
+        "start": 435,
+        "end": 444,
+        "pdfStart": 453,
+        "pdfEnd": 462
+      },
+      "tasks": [
+        "F.3",
+        "G.5",
+        "G.6",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C18.07",
+      "title": "The Loss of Verbal Behavior",
+      "chapter": 18,
+      "pages": {
+        "start": 444,
+        "end": 446,
+        "pdfStart": 462,
+        "pdfEnd": 464
+      },
+      "tasks": [
+        "F.3",
+        "F.7"
+      ]
+    },
+    {
+      "id": "C19.01",
+      "title": "Research Foundations and Core Concepts",
+      "chapter": 19,
+      "pages": {
+        "start": 453,
+        "end": 467,
+        "pdfStart": 471,
+        "pdfEnd": 485
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C19.02",
+      "title": "Designing Equivalence-Based Instruction",
+      "chapter": 19,
+      "pages": {
+        "start": 467,
+        "end": 481,
+        "pdfStart": 485,
+        "pdfEnd": 499
+      },
+      "tasks": [
+        "G.6",
+        "G.13",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C19.03",
+      "title": "Applications and Generality",
+      "chapter": 19,
+      "pages": {
+        "start": 481,
+        "end": 490,
+        "pdfStart": 499,
+        "pdfEnd": 508
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C19.04",
+      "title": "Applications Stemming from Alternative Theoretical Approaches to Relational Responding",
+      "chapter": 19,
+      "pages": {
+        "start": 490,
+        "end": 494,
+        "pdfStart": 508,
+        "pdfEnd": 512
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C19.05",
+      "title": "Concluding Remarks",
+      "chapter": 19,
+      "pages": {
+        "start": 494,
+        "end": 494,
+        "pdfStart": 512,
+        "pdfEnd": 512
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C20.01",
+      "title": "What Are Nonequivalence Relations? Why Do They Matter?",
+      "chapter": 20,
+      "pages": {
+        "start": 498,
+        "end": 500,
+        "pdfStart": 516,
+        "pdfEnd": 518
+      },
+      "tasks": [
+        "B.21"
+      ]
+    },
+    {
+      "id": "C20.02",
+      "title": "The Vocabulary of Nonequivalence Relations",
+      "chapter": 20,
+      "pages": {
+        "start": 500,
+        "end": 502,
+        "pdfStart": 518,
+        "pdfEnd": 520
+      },
+      "tasks": [
+        "B.21"
+      ]
+    },
+    {
+      "id": "C20.03",
+      "title": "Some Types of Nonequivalence Relations",
+      "chapter": 20,
+      "pages": {
+        "start": 502,
+        "end": 507,
+        "pdfStart": 520,
+        "pdfEnd": 525
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C20.04",
+      "title": "Theoretical Foundations",
+      "chapter": 20,
+      "pages": {
+        "start": 507,
+        "end": 512,
+        "pdfStart": 525,
+        "pdfEnd": 530
+      },
+      "tasks": [
+        "B.21",
+        "G.19"
+      ]
+    },
+    {
+      "id": "C20.05",
+      "title": "Nonequivalence Relations and Big-Picture Psychological Constructs",
+      "chapter": 20,
+      "pages": {
+        "start": 512,
+        "end": 517,
+        "pdfStart": 530,
+        "pdfEnd": 535
+      },
+      "tasks": [
+        "B.21"
+      ]
+    },
+    {
+      "id": "C20.06",
+      "title": "Derived Stimulus Relations and General Well-Being",
+      "chapter": 20,
+      "pages": {
+        "start": 517,
+        "end": 524,
+        "pdfStart": 535,
+        "pdfEnd": 542
+      },
+      "tasks": [
+        "B.18",
+        "B.21"
+      ]
+    },
+    {
+      "id": "C20.07",
+      "title": "A Final Comment",
+      "chapter": 20,
+      "pages": {
+        "start": 524,
+        "end": 525,
+        "pdfStart": 542,
+        "pdfEnd": 543
+      },
+      "tasks": [
+        "B.21"
+      ]
+    },
+    {
+      "id": "C21.01",
+      "title": "Imitation",
+      "chapter": 21,
+      "pages": {
+        "start": 527,
+        "end": 533,
+        "pdfStart": 545,
+        "pdfEnd": 551
+      },
+      "tasks": [
+        "B.24",
+        "G.9"
+      ]
+    },
+    {
+      "id": "C21.02",
+      "title": "Modeling",
+      "chapter": 21,
+      "pages": {
+        "start": 533,
+        "end": 536,
+        "pdfStart": 551,
+        "pdfEnd": 554
+      },
+      "tasks": [
+        "G.9",
+        "I.5"
+      ]
+    },
+    {
+      "id": "C21.03",
+      "title": "Observational Learning",
+      "chapter": 21,
+      "pages": {
+        "start": 536,
+        "end": 538,
+        "pdfStart": 554,
+        "pdfEnd": 556
+      },
+      "tasks": [
+        "B.24",
+        "G.9"
+      ]
+    },
+    {
+      "id": "C22.01",
+      "title": "Shaping Defined",
+      "chapter": 22,
+      "pages": {
+        "start": 541,
+        "end": 544,
+        "pdfStart": 559,
+        "pdfEnd": 562
+      },
+      "tasks": [
+        "G.11"
+      ]
+    },
+    {
+      "id": "C22.02",
+      "title": "Shaping Across and Within Response Topographies",
+      "chapter": 22,
+      "pages": {
+        "start": 544,
+        "end": 547,
+        "pdfStart": 562,
+        "pdfEnd": 565
+      },
+      "tasks": [
+        "G.11"
+      ]
+    },
+    {
+      "id": "C22.03",
+      "title": "Increasing Shaping Efficiency",
+      "chapter": 22,
+      "pages": {
+        "start": 547,
+        "end": 548,
+        "pdfStart": 565,
+        "pdfEnd": 566
+      },
+      "tasks": [
+        "C.7",
+        "G.7",
+        "G.11"
+      ]
+    },
+    {
+      "id": "C22.04",
+      "title": "Clicker Training",
+      "chapter": 22,
+      "pages": {
+        "start": 548,
+        "end": 549,
+        "pdfStart": 566,
+        "pdfEnd": 567
+      },
+      "tasks": [
+        "G.4",
+        "G.11"
+      ]
+    },
+    {
+      "id": "C22.05",
+      "title": "Emerging Applications of Shaping",
+      "chapter": 22,
+      "pages": {
+        "start": 549,
+        "end": 551,
+        "pdfStart": 567,
+        "pdfEnd": 569
+      },
+      "tasks": [
+        "G.11"
+      ]
+    },
+    {
+      "id": "C22.06",
+      "title": "Shaping Guidelines",
+      "chapter": 22,
+      "pages": {
+        "start": 551,
+        "end": 553,
+        "pdfStart": 569,
+        "pdfEnd": 571
+      },
+      "tasks": [
+        "G.11",
+        "H.1"
+      ]
+    },
+    {
+      "id": "C22.07",
+      "title": "Learning to Shape",
+      "chapter": 22,
+      "pages": {
+        "start": 553,
+        "end": 555,
+        "pdfStart": 571,
+        "pdfEnd": 573
+      },
+      "tasks": [
+        "G.11",
+        "E.3"
+      ]
+    },
+    {
+      "id": "C23.01",
+      "title": "Behavior Chain Defined",
+      "chapter": 23,
+      "pages": {
+        "start": 558,
+        "end": 559,
+        "pdfStart": 576,
+        "pdfEnd": 577
+      },
+      "tasks": [
+        "B.7",
+        "G.12"
+      ]
+    },
+    {
+      "id": "C23.02",
+      "title": "Rationale for Chaining",
+      "chapter": 23,
+      "pages": {
+        "start": 559,
+        "end": 559,
+        "pdfStart": 577,
+        "pdfEnd": 577
+      },
+      "tasks": [
+        "G.12"
+      ]
+    },
+    {
+      "id": "C23.03",
+      "title": "Establishing Behavior Chains with Task Analysis",
+      "chapter": 23,
+      "pages": {
+        "start": 559,
+        "end": 563,
+        "pdfStart": 577,
+        "pdfEnd": 581
+      },
+      "tasks": [
+        "F.3",
+        "G.12"
+      ]
+    },
+    {
+      "id": "C23.04",
+      "title": "Behavior Chaining Methods",
+      "chapter": 23,
+      "pages": {
+        "start": 563,
+        "end": 570,
+        "pdfStart": 581,
+        "pdfEnd": 588
+      },
+      "tasks": [
+        "G.12"
+      ]
+    },
+    {
+      "id": "C23.05",
+      "title": "Choosing a Chaining Method",
+      "chapter": 23,
+      "pages": {
+        "start": 570,
+        "end": 570,
+        "pdfStart": 588,
+        "pdfEnd": 588
+      },
+      "tasks": [
+        "G.12",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C23.06",
+      "title": "Disrupting and Breaking Behavior Chains",
+      "chapter": 23,
+      "pages": {
+        "start": 570,
+        "end": 574,
+        "pdfStart": 588,
+        "pdfEnd": 592
+      },
+      "tasks": [
+        "G.12",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C23.07",
+      "title": "Troubleshooting Chains",
+      "chapter": 23,
+      "pages": {
+        "start": 574,
+        "end": 576,
+        "pdfStart": 592,
+        "pdfEnd": 594
+      },
+      "tasks": [
+        "G.12",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C23.08",
+      "title": "Factors Affecting the Performance of Behavior Chains",
+      "chapter": 23,
+      "pages": {
+        "start": 576,
+        "end": 578,
+        "pdfStart": 594,
+        "pdfEnd": 596
+      },
+      "tasks": [
+        "G.12",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C24.01",
+      "title": "Extinction Defined",
+      "chapter": 24,
+      "pages": {
+        "start": 583,
+        "end": 585,
+        "pdfStart": 601,
+        "pdfEnd": 603
+      },
+      "tasks": [
+        "B.11"
+      ]
+    },
+    {
+      "id": "C24.02",
+      "title": "Extinction Procedures",
+      "chapter": 24,
+      "pages": {
+        "start": 585,
+        "end": 586,
+        "pdfStart": 603,
+        "pdfEnd": 604
+      },
+      "tasks": [
+        "B.11",
+        "G.2"
+      ]
+    },
+    {
+      "id": "C24.03",
+      "title": "Secondary Effects of Extinction",
+      "chapter": 24,
+      "pages": {
+        "start": 586,
+        "end": 589,
+        "pdfStart": 604,
+        "pdfEnd": 607
+      },
+      "tasks": [
+        "B.11",
+        "G.18",
+        "H.5"
+      ]
+    },
+    {
+      "id": "C24.04",
+      "title": "Variables Affecting Resistance to Extinction",
+      "chapter": 24,
+      "pages": {
+        "start": 589,
+        "end": 590,
+        "pdfStart": 607,
+        "pdfEnd": 608
+      },
+      "tasks": [
+        "B.11",
+        "B.22"
+      ]
+    },
+    {
+      "id": "C24.05",
+      "title": "Using Extinction Effectively",
+      "chapter": 24,
+      "pages": {
+        "start": 590,
+        "end": 592,
+        "pdfStart": 608,
+        "pdfEnd": 610
+      },
+      "tasks": [
+        "B.11",
+        "G.2",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C24.06",
+      "title": "When Not to Use Extinction",
+      "chapter": 24,
+      "pages": {
+        "start": 592,
+        "end": 593,
+        "pdfStart": 610,
+        "pdfEnd": 611
+      },
+      "tasks": [
+        "E.2",
+        "H.2",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C25.01",
+      "title": "Differential Reinforcement Defined",
+      "chapter": 25,
+      "pages": {
+        "start": 596,
+        "end": 596,
+        "pdfStart": 614,
+        "pdfEnd": 614
+      },
+      "tasks": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "C25.02",
+      "title": "Differential Reinforcement of Alternative Behavior (DRA)",
+      "chapter": 25,
+      "pages": {
+        "start": 596,
+        "end": 600,
+        "pdfStart": 614,
+        "pdfEnd": 618
+      },
+      "tasks": [
+        "G.2",
+        "H.3",
+        "B.23"
+      ]
+    },
+    {
+      "id": "C25.03",
+      "title": "Differential Reinforcement of Other Behavior (DRO)",
+      "chapter": 25,
+      "pages": {
+        "start": 600,
+        "end": 606,
+        "pdfStart": 618,
+        "pdfEnd": 624
+      },
+      "tasks": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "C25.04",
+      "title": "Differential Reinforcement of Low Rates of Responding (DRL)",
+      "chapter": 25,
+      "pages": {
+        "start": 606,
+        "end": 611,
+        "pdfStart": 624,
+        "pdfEnd": 629
+      },
+      "tasks": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "C26.01",
+      "title": "Defining and Classifying Antecedent Interventions",
+      "chapter": 26,
+      "pages": {
+        "start": 614,
+        "end": 615,
+        "pdfStart": 632,
+        "pdfEnd": 633
+      },
+      "tasks": [
+        "G.5",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C26.02",
+      "title": "Noncontingent Reinforcement",
+      "chapter": 26,
+      "pages": {
+        "start": 615,
+        "end": 619,
+        "pdfStart": 633,
+        "pdfEnd": 637
+      },
+      "tasks": [
+        "G.3"
+      ]
+    },
+    {
+      "id": "C26.03",
+      "title": "High-Probability Instructional Sequence",
+      "chapter": 26,
+      "pages": {
+        "start": 619,
+        "end": 621,
+        "pdfStart": 637,
+        "pdfEnd": 639
+      },
+      "tasks": [
+        "G.5",
+        "G.10"
+      ]
+    },
+    {
+      "id": "C26.04",
+      "title": "Functional Communication Training",
+      "chapter": 26,
+      "pages": {
+        "start": 621,
+        "end": 623,
+        "pdfStart": 639,
+        "pdfEnd": 641
+      },
+      "tasks": [
+        "G.2",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C26.05",
+      "title": "Default Interventions",
+      "chapter": 26,
+      "pages": {
+        "start": 623,
+        "end": 625,
+        "pdfStart": 641,
+        "pdfEnd": 643
+      },
+      "tasks": [
+        "H.2",
+        "H.4"
+      ]
+    },
+    {
+      "id": "C27.01",
+      "title": "Functions of Behavior",
+      "chapter": 27,
+      "pages": {
+        "start": 628,
+        "end": 630,
+        "pdfStart": 646,
+        "pdfEnd": 648
+      },
+      "tasks": [
+        "B.6",
+        "F.6"
+      ]
+    },
+    {
+      "id": "C27.02",
+      "title": "Role of Functional Behavior Assessment in Intervention and Prevention",
+      "chapter": 27,
+      "pages": {
+        "start": 630,
+        "end": 631,
+        "pdfStart": 648,
+        "pdfEnd": 649
+      },
+      "tasks": [
+        "F.6",
+        "H.2",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C27.03",
+      "title": "Overview of FBA Methods",
+      "chapter": 27,
+      "pages": {
+        "start": 631,
+        "end": 641,
+        "pdfStart": 649,
+        "pdfEnd": 659
+      },
+      "tasks": [
+        "F.5",
+        "F.6"
+      ]
+    },
+    {
+      "id": "C27.04",
+      "title": "Conducting a Functional Behavior Assessment",
+      "chapter": 27,
+      "pages": {
+        "start": 641,
+        "end": 643,
+        "pdfStart": 659,
+        "pdfEnd": 661
+      },
+      "tasks": [
+        "F.5",
+        "F.6",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C27.05",
+      "title": "Case Examples Illustrating the FBA Process",
+      "chapter": 27,
+      "pages": {
+        "start": 643,
+        "end": 652,
+        "pdfStart": 661,
+        "pdfEnd": 670
+      },
+      "tasks": [
+        "F.5",
+        "F.6",
+        "H.3"
+      ]
+    },
+    {
+      "id": "C28.01",
+      "title": "Token Economy",
+      "chapter": 28,
+      "pages": {
+        "start": 656,
+        "end": 664,
+        "pdfStart": 674,
+        "pdfEnd": 682
+      },
+      "tasks": [
+        "G.4",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C28.02",
+      "title": "Group Contingencies",
+      "chapter": 28,
+      "pages": {
+        "start": 664,
+        "end": 672,
+        "pdfStart": 682,
+        "pdfEnd": 690
+      },
+      "tasks": [
+        "G.14"
+      ]
+    },
+    {
+      "id": "C28.03",
+      "title": "Contingency Contracting",
+      "chapter": 28,
+      "pages": {
+        "start": 672,
+        "end": 680,
+        "pdfStart": 690,
+        "pdfEnd": 698
+      },
+      "tasks": [
+        "G.10",
+        "H.1"
+      ]
+    },
+    {
+      "id": "C29.01",
+      "title": "The “Self” as Behavior Controller",
+      "chapter": 29,
+      "pages": {
+        "start": 681,
+        "end": 682,
+        "pdfStart": 699,
+        "pdfEnd": 700
+      },
+      "tasks": [
+        "A.3",
+        "B.18"
+      ]
+    },
+    {
+      "id": "C29.02",
+      "title": "Self-Management Defined",
+      "chapter": 29,
+      "pages": {
+        "start": 682,
+        "end": 685,
+        "pdfStart": 700,
+        "pdfEnd": 703
+      },
+      "tasks": [
+        "B.18",
+        "G.10"
+      ]
+    },
+    {
+      "id": "C29.03",
+      "title": "Applications, Advantages, and Benefits of Self-Management",
+      "chapter": 29,
+      "pages": {
+        "start": 685,
+        "end": 690,
+        "pdfStart": 703,
+        "pdfEnd": 708
+      },
+      "tasks": [
+        "G.16"
+      ]
+    },
+    {
+      "id": "C29.04",
+      "title": "Antecedent-Based Self-Management Tactics",
+      "chapter": 29,
+      "pages": {
+        "start": 690,
+        "end": 692,
+        "pdfStart": 708,
+        "pdfEnd": 710
+      },
+      "tasks": [
+        "G.5",
+        "G.7"
+      ]
+    },
+    {
+      "id": "C29.05",
+      "title": "Self-Monitoring",
+      "chapter": 29,
+      "pages": {
+        "start": 692,
+        "end": 699,
+        "pdfStart": 710,
+        "pdfEnd": 717
+      },
+      "tasks": [
+        "C.2",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C29.06",
+      "title": "Self-Administered Consequences",
+      "chapter": 29,
+      "pages": {
+        "start": 699,
+        "end": 704,
+        "pdfStart": 717,
+        "pdfEnd": 722
+      },
+      "tasks": [
+        "B.4",
+        "B.5"
+      ]
+    },
+    {
+      "id": "C29.07",
+      "title": "Other Self-Management Tactics",
+      "chapter": 29,
+      "pages": {
+        "start": 704,
+        "end": 707,
+        "pdfStart": 722,
+        "pdfEnd": 725
+      },
+      "tasks": [
+        "B.18",
+        "G.10"
+      ]
+    },
+    {
+      "id": "C29.08",
+      "title": "Suggestions for Effective Self-Management",
+      "chapter": 29,
+      "pages": {
+        "start": 707,
+        "end": 710,
+        "pdfStart": 725,
+        "pdfEnd": 728
+      },
+      "tasks": [
+        "H.1",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C29.09",
+      "title": "Behavior Changes Behavior",
+      "chapter": 29,
+      "pages": {
+        "start": 710,
+        "end": 711,
+        "pdfStart": 728,
+        "pdfEnd": 729
+      },
+      "tasks": [
+        "A.3",
+        "B.18"
+      ]
+    },
+    {
+      "id": "C30.01",
+      "title": "Generalized Behavior Change: Definitions and Key Concepts",
+      "chapter": 30,
+      "pages": {
+        "start": 715,
+        "end": 721,
+        "pdfStart": 733,
+        "pdfEnd": 739
+      },
+      "tasks": [
+        "B.14",
+        "B.15"
+      ]
+    },
+    {
+      "id": "C30.02",
+      "title": "Planning for Generalized Behavior Change",
+      "chapter": 30,
+      "pages": {
+        "start": 721,
+        "end": 723,
+        "pdfStart": 739,
+        "pdfEnd": 741
+      },
+      "tasks": [
+        "G.15",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C30.03",
+      "title": "Strategies and Tactics for Promoting Generalized Behavior Change",
+      "chapter": 30,
+      "pages": {
+        "start": 723,
+        "end": 749,
+        "pdfStart": 741,
+        "pdfEnd": 767
+      },
+      "tasks": [
+        "G.15",
+        "G.16"
+      ]
+    },
+    {
+      "id": "C30.04",
+      "title": "Modifying and Terminating Successful Interventions",
+      "chapter": 30,
+      "pages": {
+        "start": 749,
+        "end": 751,
+        "pdfStart": 767,
+        "pdfEnd": 769
+      },
+      "tasks": [
+        "G.16",
+        "H.5",
+        "H.7"
+      ]
+    },
+    {
+      "id": "C30.05",
+      "title": "Guiding Principles for Promoting Generalized Outcomes",
+      "chapter": 30,
+      "pages": {
+        "start": 751,
+        "end": 753,
+        "pdfStart": 769,
+        "pdfEnd": 771
+      },
+      "tasks": [
+        "G.15",
+        "G.16",
+        "H.8"
+      ]
+    },
+    {
+      "id": "C31.01",
+      "title": "What Is Ethics and Why Is It Important?",
+      "chapter": 31,
+      "pages": {
+        "start": 759,
+        "end": 764,
+        "pdfStart": 777,
+        "pdfEnd": 782
+      },
+      "tasks": [
+        "E.1",
+        "E.2",
+        "E.11"
+      ]
+    },
+    {
+      "id": "C31.02",
+      "title": "Standards of Professional Practice for Applied Behavior Analysts",
+      "chapter": 31,
+      "pages": {
+        "start": 764,
+        "end": 765,
+        "pdfStart": 782,
+        "pdfEnd": 783
+      },
+      "tasks": [
+        "E.1",
+        "E.12"
+      ]
+    },
+    {
+      "id": "C31.03",
+      "title": "Ensuring Professional Competence",
+      "chapter": 31,
+      "pages": {
+        "start": 765,
+        "end": 769,
+        "pdfStart": 783,
+        "pdfEnd": 787
+      },
+      "tasks": [
+        "E.3",
+        "I.1",
+        "I.2",
+        "I.4",
+        "I.5"
+      ]
+    },
+    {
+      "id": "C31.04",
+      "title": "Ethical Issues in Client Services",
+      "chapter": 31,
+      "pages": {
+        "start": 769,
+        "end": 775,
+        "pdfStart": 787,
+        "pdfEnd": 793
+      },
+      "tasks": [
+        "E.2",
+        "E.4",
+        "E.6",
+        "E.7"
+      ]
+    },
+    {
+      "id": "C31.05",
+      "title": "Coordinating with Other Professionals",
+      "chapter": 31,
+      "pages": {
+        "start": 775,
+        "end": 776,
+        "pdfStart": 793,
+        "pdfEnd": 794
+      },
+      "tasks": [
+        "E.8",
+        "H.8"
+      ]
+    },
+    {
+      "id": "C31.06",
+      "title": "Social Media and New Technologies",
+      "chapter": 31,
+      "pages": {
+        "start": 776,
+        "end": 778,
+        "pdfStart": 794,
+        "pdfEnd": 796
+      },
+      "tasks": [
+        "E.4",
+        "E.5"
+      ]
+    },
+    {
+      "id": "C31.07",
+      "title": "Advocating for the Client",
+      "chapter": 31,
+      "pages": {
+        "start": 778,
+        "end": 780,
+        "pdfStart": 796,
+        "pdfEnd": 798
+      },
+      "tasks": [
+        "F.7",
+        "F.8",
+        "H.2"
+      ]
+    },
+    {
+      "id": "C31.08",
+      "title": "Conflict of Interest",
+      "chapter": 31,
+      "pages": {
+        "start": 780,
+        "end": 781,
+        "pdfStart": 798,
+        "pdfEnd": 799
+      },
+      "tasks": [
+        "E.7"
+      ]
+    },
+    {
+      "id": "C31.09",
+      "title": "Creating a Culture of Ethical Practice",
+      "chapter": 31,
+      "pages": {
+        "start": 781,
+        "end": 782,
+        "pdfStart": 799,
+        "pdfEnd": 800
+      },
+      "tasks": [
+        "E.2",
+        "I.1",
+        "I.5",
+        "I.7"
+      ]
+    },
+    {
+      "id": "C31.10",
+      "title": "Conclusion",
+      "chapter": 31,
+      "pages": {
+        "start": 782,
+        "end": 782,
+        "pdfStart": 800,
+        "pdfEnd": 800
+      },
+      "tasks": [
+        "E.2",
+        "E.3"
+      ]
+    },
+    {
+      "id": "REF.GLOSSARY",
+      "title": "Glossary · terms and definitions",
+      "chapter": 0,
+      "pages": {
+        "start": 786,
+        "end": 803,
+        "pdfStart": 804,
+        "pdfEnd": 821
+      },
+      "tasks": []
+    }
+  ]
+}

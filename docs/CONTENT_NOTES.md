@@ -1,23 +1,19 @@
-# Content scope and provenance
+# Content notes
 
-The supplied attachment was an index, not a collection of complete article bodies. It contained 104 topic titles and links across nine domains. The source metadata is preserved in `supplied-outline.json` and in each bundled topic's `id`, `domain`, `title`, and `source` fields.
+## Original curriculum: unchanged
 
-The linked AllDayABA article pages did not expose substantive lesson text through the available retrieval. Consequently, the notes, definitions, flashcards, and scenarios in this app are **original supplemental content**, not a scrape, close paraphrase, or republication of those articles. The app does not include the purchased AllDayABA study bundle, Cooper/Heron/Heward's textbook, or any protected or secure question bank.
+The 104 identifiers, titles, domain headings, order, and links come from the supplied AllDayABA index. Article bodies were not retrieved. Its 220 cards, topic notes, and 104 scenarios are original supplemental material, not scraped articles, official exam questions, or a validated item bank. `original-outline-baseline.json` preserves the original curriculum for deep-equality regression testing.
 
-A per-topic link is a way to consult the linked article. It is not a citation asserting that the article's body was retrieved or supports every sentence of the original study notes.
+## Cooper curriculum: separate
 
-## Included organization
+Source: user-uploaded *Applied Behavior Analysis*, Third Edition, John O. Cooper, Timothy E. Heron, William L. Heward; Pearson. Copyright page: 2020, 2016, 2014. ISBN 978-0-13-475255-6. Numeric page offset: PDF page = printed page + 18.
 
-A: 5 topics; B: 24; C: 12; D: 9; E: 12; F: 8; G: 19; H: 8; I: 7. Total: 104.
+Book-derived section lessons preserve the book’s organization and terminology. The lesson notes paraphrase the text; the glossary and full-source reader extract it. Application scenarios are newly written and marked as such. Neither the Pearson instructor test bank nor any active BACB questions were supplied or used.
 
-Each original topic has an overview, two or more key ideas, a short distinction or caution, one recall card per key idea, and one four-choice hypothetical scenario with an explanation. Total: 220 cards and 104 scenarios.
+Coverage: 31 chapters, 13 parts, 170 substantive section lessons, 661 concept cards, 170 original scenarios, 521 glossary entries, and 516 glossary-definition cards. The full 908-page text archive preserves summaries and reference matter. Not every paragraph, individual exercise, figure, study, or citation has a separately authored question. Fifteen selected source page images supplement the extracted reader; the local original-PDF link provides access to other visual pages.
 
-## Limits
+The crosswalk is editorial. The book itself uses the 5th Edition task list; do not treat its printed mappings as 6th Edition tags. Related/partial/unmapped statuses do not certify full preparation. Current cultural humility, inclusive practices, assessment of cultural variables, and supervision equity have no mapped sections in this release. Supervision mappings generally identify foundations rather than full task coverage. All ethics content remains a historical reading of the earlier Compliance Code.
 
-These concise introductory notes do not exhaust every concept or performance requirement within the official outline. They are not independently reviewed, BACB-endorsed, clinically validated, or a prediction of examination coverage. Scenario distractors are written for learning and do not claim to reproduce the difficulty or psychometric properties of a certification exam.
+The source has text-layer artifacts. Headword spacing and obvious transcription issues were cleaned, but formulas, columns, and other scan characters may remain imperfect in the reader. Chapter 16 flags inconsistent source wording about the behavior-altering effect; no verified publisher erratum is asserted. One glossary spelling, “solistic,” is retained with a note identifying the chapter’s “solecistic” spelling.
 
-The professional and ethical examples are general educational illustrations, not client-specific recommendations, legal opinions, or current licensing determinations. Interventions, assessments, and supervision require relevant training, competence, consent, safeguards, and current governing requirements.
-
-## Adding stronger source-grounded material
-
-The user can replace or add material through a JSON study pack or the built-in topic editor. Preserve clear authorship and citations in the `provenance` field and the per-topic `source` URL. Use materials you wrote, have permission to use, or can lawfully summarize. Do not label generated questions as official, retired, or validated items unless their provenance actually establishes that status.
+Software tests check counts, data integrity, state isolation, and interface behavior. They do not constitute independent content validation, clinical review, exam readiness measurement, or endorsement. Source-page references make the notes inspectable rather than infallible.

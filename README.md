@@ -1,142 +1,104 @@
-# Study Studio — Tailwind study app
+# Study Studio · Cooper textbook edition
 
-An offline, responsive study workspace. Select a curriculum, then move between **Outline**, **Flashcards**, and **Scenarios** while keeping the selected topic in view.
+A self-contained **Tailwind CSS 4.1.10 + plain JavaScript** study app. The original BCBA outline remains unchanged. The Cooper textbook is a **separate curriculum in the library dropdown**, with its own progress, notes, bookmarks, and practice history.
 
-## Open it immediately
+## Open the app
 
-Open **`dist/index.html`** in a modern browser. All application code, compiled Tailwind CSS, and the study pack are embedded in that one file. There are no runtime dependencies, API keys, CDN requests, logins, or installation steps. External article/resource links require internet only when opened.
+Open **`dist/index.html`** in Chrome or another modern browser. No installation, server, login, API key, or CDN is required. When a chat preview shows source text, save the HTML and open that file in the browser.
 
-If a chat/file preview displays source text instead of executing it, save the HTML file and open it directly with your browser.
+The library contains:
 
-## Included study pack
-
-| Component | Included |
-|---|---:|
-| Domains | 9, A–I |
-| Outline topics | 104 |
-| Question-and-answer cards | 220 |
-| Original multiple-choice scenarios | 104 |
-
-The topic IDs, titles, sequence, domains, and article links come from the user-supplied AllDayABA index. **The article bodies were not retrieved.** The notes, definitions, flashcards, and hypothetical scenarios are original supplemental study material. They are not scraped AllDayABA lessons, official BACB questions, retired questions, or a validated exam bank. The pack has not been independently reviewed for clinical or examination completeness and is not endorsed by BACB or AllDayABA. Use it alongside professional training and current official materials. The app also discloses this distinction in its content/source dialog.
-
-The concise notes introduce the topics; they are not a replacement for a full textbook, graduate coursework, or supervised practice. Scenario scores and card confidence ratings do not predict exam results. No clinical protocols or jurisdiction-specific legal determinations are supplied.
-
-## Using the app
-
-**Curriculum dropdown.** Start with `6th Edition BCBA Outline`. Choose `My study material` to create your own subject matter, or import a JSON curriculum to add another entry.
-
-**Outline.** Use the topic sidebar or Previous/Next controls. Review each overview, key idea, and distinction; mark a topic reviewed when ready. Navigating does not automatically mark it reviewed.
-
-**Flashcards.** Attempt an answer, then click the card or Reveal answer. Choose Got it or Review again. Scope the deck to all filtered topics, the current topic, its domain, bookmarked topics, or cards marked for another look. Shuffle preserves your recorded progress.
-
-**Scenarios.** Select one of four choices and check the answer. Review the rationale and retry when useful. First-attempt accuracy remains based on the first answer to each unique scenario; a retry does not rewrite the first attempt.
-
-Search topics, filter domains, bookmark material, write private topic notes, and increase reading text size. Layout adapts to desktop and phone screens. The same topic carries across study modes.
-
-### Keyboard shortcuts
-
-| Key | Action |
+| Curriculum | Study material |
 |---|---|
-| Left / Right | Previous / next topic or practice item |
-| Space | Flip the flashcard |
-| O / F / S | Outline / Flashcards / Scenarios |
-| / | Focus topic search |
-| 1–4 | Select a scenario answer |
-| Enter | Check the scenario answer |
-| Escape | Close dialog or mobile navigation |
+| 6th Edition BCBA Outline | Original 104 topics, 220 cards, and 104 scenarios; content unchanged |
+| Cooper, Heron & Heward — Applied Behavior Analysis, 3rd Edition | 31 chapters; 170 section lessons; 661 concept cards; 170 original application scenarios |
+| Cooper glossary appendix | 521 searchable entries and 516 extracted definition cards; included in the book’s 1,177-card total |
+| My study material | Your own editable topics, cards, and scenarios |
 
-Text inputs retain normal typing behavior.
+Five glossary entries are cross-reference-only entries, not definition cards. The book appears as 171 navigable items: 170 lessons plus the glossary reference appendix. The appendix is **not** a 32nd chapter or a tenth BACB domain.
 
-## Local storage and backups
+## Study the book
 
-Progress, notes, bookmarks, and custom curricula are saved under `study-studio:v1` in your browser's local storage, where the browser permits it. No data is sent to a server.
+Choose the Cooper entry in **Study library**. Use **Chapters** for book order or **6th Edition domains** for the editorial mapping. The chapter and domain controls filter the book without changing the original curriculum.
 
-**Local-file storage behavior depends on the browser and file location.** Clearing browser data, switching devices/browsers, private browsing, or moving/renaming the HTML file can make saved work unavailable. If storage is blocked or full, the app warns that it is running in session-only mode. Export a backup before closing or moving your work.
+**Outline:** Read each section’s overview, key ideas, important distinction, and source references. Previous/Next follows the filtered set. Review marks are deliberate, not automatic.
 
-Open the settings button at the top right:
+**Flashcards:** Answer before revealing. Mark Got it or Review again. Scope practice to this chapter, this section, a domain, bookmarked sections, the full filtered set, or items needing another look. Every card has a source-page range. Glossary cards refer to their own glossary pages.
 
-- **Export backup** saves your progress, notes, bookmarks, and custom curricula.
-- **Export study pack** saves only the current curriculum, without private progress or notes.
-- **Import / restore** accepts a study pack or a backup. Restore asks for confirmation before replacing saved work.
-- **Reset learning progress** asks for confirmation and keeps your notes, bookmarks, and custom material.
+**Scenarios:** Choose an answer and check it. Each book scenario explains all four options. Retry without changing the first-attempt record. Scenarios are newly written hypothetical applications, not copied book cases, an instructor test bank, or secure BACB items.
 
-Backups are unencrypted JSON files. Store them appropriately if your notes contain personal information. Do not add identifiable client records to study notes without appropriate authorization and safeguards.
+**Glossary:** Search terms and definitions. Open the source page or practice one definition. There are no fabricated glossary scenarios; use chapter scenarios for application practice.
 
-## Add or import a curriculum
+**Coverage & task crosswalk:** All 104 task rows are visible, with 79 related, 21 partial, and 4 unmapped rows. “Related” is not a claim of full exam-task coverage. Each mapping links to book sections and printed pages. E.9, E.10, F.2, and I.3 have no mapped sections. Domain I and historical ethics topics are deliberately limited.
 
-Use **My study material → Add a topic** to enter a title, overview, key ideas, an extra Q&A card, and an optional four-choice scenario. Key ideas use the format `Term | Definition`, one per line, and also become flashcards. If you provide no key ideas or extra card, the overview becomes a basic recall card.
+## Source reader and original PDF
 
-For larger packs, use **`docs/example-study-pack.json`** as a template. Import it from Settings. Curriculum IDs, topic IDs, and practice-item IDs must be unique in their respective scopes. Imported curriculum IDs that already exist are renamed rather than overwriting an existing course. Topic domain IDs must match a declared domain. A scenario needs four distinct choices, `correctIndex` from 0 to 3, and an explanation. `scenario: null` is valid.
+The app embeds extracted text for all **908 PDF pages**, including chapter summaries, the epilogue, glossary, bibliography, and indexes. Search the book locally or jump to a printed page. **Printed page + 18 = PDF page.** Fifteen selected original page images are included for direct visual consultation.
 
-The app validates imports, rejects malformed content, blocks unsafe link protocols, and escapes imported/user-authored text before rendering. Imports are limited to 5 MB and 30 added curricula; a course supports up to 1,000 topics, 40 domains, and 100 cards per topic. Browser storage capacity can impose a lower practical limit.
+The source reader is not a new PDF viewer. The original 235 MB PDF is not bundled. Choose **Connect original PDF** inside the reader to associate your own local copy. An original-page link opens the browser’s PDF viewer at the selected PDF page. The file is not uploaded, and the association lasts for the current session only.
 
-## Project structure
+Source-text extraction can misorder columns or damage mathematical symbols. Use the original image/PDF for authoritative layout, figures, tables, and ambiguous wording. Source page ranges include a shared boundary page when sections begin on the same page.
 
-```text
-src/
-  app.js                  Application behavior and UI templates
-  content.json            Complete bundled curricula and original study content
-  index.html              Single-file HTML build template
-  theme.css               Tailwind theme tokens
-  styles.css              Component/responsive CSS
-scripts/
-  build.mjs               Compiles Tailwind and embeds assets into dist/index.html
-  serve.mjs               Optional dependency-free local Node server
-  make_content.py         Rebuilds the original content pack from the index + authored notes
-docs/
-  supplied-outline.json   Preserved topic metadata from the supplied index
-  example-study-pack.json Importable example curriculum
-  CONTENT_NOTES.md        Scope and provenance details
-  preview-*.png           Browser-rendered screenshots
-tests/
-  content.test.mjs        Node built-in test suite
-  browser_test.py         Playwright UI integration checks
-  browser-results.json    Recorded UI test results and limitations
-dist/
-  index.html              Ready-to-open, self-contained app
-  tailwind.css            Compiled Tailwind CSS, also embedded in index.html
-```
+## Coverage and provenance
 
-## Develop or rebuild
+The book lessons are paraphrases derived from the uploaded third edition. Glossary and reader text are extracted from that copy. All chapters and substantive table-of-contents sections have study material, but **not every paragraph, worked example, citation, or figure has a separately authored lesson or question**. This is a section-level study companion with full-source lookup, not a substitute for reading the book or supervised training.
 
-This is **plain JavaScript with Tailwind CSS 4.1.10**. No React dependency is needed.
+The book’s own task mappings reference the **5th Edition**, and its ethics chapter discusses the older **Professional and Ethical Compliance Code**. The app’s 6th Edition tags are separate editorial work, not renamed printed codes. Current ethics, law, certification requirements, and gaps in cultural responsiveness or supervision should be studied separately. No clinical or examination-completeness validation is claimed. There is no endorsement by Pearson, the textbook authors, BACB, or AllDayABA.
 
-For the ready-built app, you need only a browser. To rebuild, use Node.js 20 or later:
+Chapter 16 includes an explicit note about conflicting source wording on the behavior-altering effect. It identifies the passages followed and does not claim a verified publisher erratum. The glossary retains historical language; visible spacing and obvious text-layer errors were cleaned. Bibliographic/reference material is retained in the reader rather than converted into filler practice questions.
+
+The original outline’s notes and scenarios remain original supplemental content based on the supplied AllDayABA *index*, not scraped AllDayABA article bodies. See `docs/CONTENT_NOTES.md`.
+
+## Preserve existing progress
+
+In the old app, open **Settings → Export backup**. In this app, choose **Settings → Import / restore**, select that backup, and confirm. The built-in Cooper curriculum remains available even when restoring an older backup with no Cooper progress.
+
+Storage uses the same `study-studio:v1` schema, with a separate progress object per curriculum. Local-file browser storage is not guaranteed to transfer between filenames or browser profiles. Clearing browser data or using private browsing can remove it. The app warns when storage is blocked/full; export before closing in that case.
+
+Backups contain private notes and are unencrypted JSON. They contain progress plus custom/imported curricula, not duplicate copies of the built-in book archive. Keep backups somewhere appropriate and avoid identifiable client records in study notes.
+
+**Export study pack** creates portable lesson/card/scenario/glossary/crosswalk data without your personal progress. For the Cooper pack, the large source text and page images stay in the standalone app to avoid duplicating them in browser storage. Import Cooper packs into this updated version; the original app’s older import limits do not support the full glossary appendix. Conflicting imported IDs get new names rather than overwriting curricula.
+
+## Development
+
+Ready-built use needs only a browser. Rebuilding requires Node.js 20+:
 
 ```bash
 npm install
 npm run build
 npm test
-```
-
-The only npm dependency is pinned to `tailwindcss` 4.1.10. The build uses Tailwind's compiler to generate utilities from the literal class names in the source. It then embeds that CSS, the custom stylesheet, the app, and the content into one HTML file.
-
-To serve the existing build on your own computer instead of opening it directly:
-
-```bash
 npm start
 ```
 
-Then open `http://localhost:5173`. Set `PORT` to change the default. The local server binds to loopback only. Stop it with Ctrl+C. `npm run dev` rebuilds once and serves; it is not a live-reloading watcher.
+`npm start` optionally serves the app at `http://localhost:5173`; Ctrl+C stops it. No backend database or cloud service is involved. Tailwind is pinned to **4.1.10**. If it is already installed outside the project, `TAILWIND_DIR=/path/to/tailwindcss npm run build` is supported.
 
-Modify `src/content.json` directly to revise study content; run `npm run build` afterward. Running `scripts/make_content.py` regenerates `content.json` from its authored source and will replace manual edits to that JSON file.
+Edit `src/content.json` for study content and `src/app.js` / `src/styles.css` for the interface, then rebuild. `scripts/make_content.py` rebuilds only the original outline while preserving other bundled curricula; it does not generate the Cooper content. The bundled JSON is the source of truth for this release.
 
-## Tests and limitations
+Key files:
 
-`npm test` uses Node's built-in runner. It checks all supplied topic metadata and order, domain counts, nonempty content, card and scenario IDs, balanced answer positions, disclosures, and the self-contained build.
+- `src/content.json`: all bundled study materials, crosswalk, source text, and selected source images.
+- `src/app.js`: escaped-text UI, navigation, progress, import/export, book extension.
+- `scripts/build.mjs`: compile Tailwind and embed all runtime assets into `dist/index.html`.
+- `docs/cooper-coverage.json`: chapter/section/source-page inventory.
+- `docs/cooper-crosswalk.json`: editorial mapping and limitations for all 104 tasks.
+- `tests/*.test.mjs`: structural integrity and original-curriculum preservation checks.
+- `tests/browser_test.py`, `tests/cooper_browser_test.py`: Chromium integration tests.
 
-The browser integration suite exercises navigation, filters, bookmarks, note saving, flashcard feedback, scenario grading/retry, mode/topic synchronization, custom content creation, export/import/restore, unsafe-HTML handling, empty/error states, all nine domains, and 390px/320px mobile layouts. Main-app tests produced no JavaScript errors or network requests.
+Imports allow up to 25 MB, 30 added curricula, 1,000 topics per course, 40 domains, and 1,000 cards per topic. Browser storage capacity may impose a much lower practical limit. Imported values are validated, unsafe link protocols are rejected, and user text is HTML-escaped before display.
 
-**Runner limitation:** this environment blocks file and loopback navigation. Browser tests render the exact output HTML with Playwright `set_content`. Save/restore logic is exercised with an in-memory Storage test double; native browser persistence for a `file://` origin was not independently verified here. A separate blocked-storage test verifies the visible fallback warning and in-session functionality. Test details are in `tests/browser-results.json`.
+## Verification
 
-To repeat browser checks in an environment with Python, Playwright, and Chromium installed:
+Run `npm test` for both the original and textbook content suites. With Python, Playwright, and Chromium installed:
 
 ```bash
 python tests/browser_test.py
+python tests/cooper_browser_test.py
 ```
 
-The script currently uses `/usr/bin/chromium`; adjust that executable path for another platform. Normal app use has no Python or Playwright dependency.
+The browser scripts use `/usr/bin/chromium`; adjust for your environment. Tests exercise all 31 chapters in all three modes, source references, crosswalk filters, glossary lookup, source search/page jumps, separate progress, export/import, original app regressions, and 390 px / 320 px layouts. No runtime network requests or JavaScript errors were observed.
 
-## Technology attribution
+**Runner limitation:** the tests render the actual output HTML through Playwright `set_content`. Save/restore is tested with an in-memory Storage double; native `file://` persistence and native browser PDF-viewer behavior are not independently verified here. Original-PDF link creation is separate from the offline source-text reader. No pass-rate or exam-readiness guarantee is implied by software tests.
 
-Tailwind CSS is distributed under its MIT license. The license is included under `docs/licenses/TAILWIND-LICENSE.txt`. No font files are included; the UI uses system fonts. Topic/source metadata and any third-party trademarks remain subject to their respective owners' rights.
+## Attribution and personal use
+
+Tailwind’s MIT license is in `docs/licenses/TAILWIND-LICENSE.txt`. The interface uses system fonts; no font files are bundled. Textbook material is derived from the copy supplied for this personal-study task. The source text and images retain their underlying copyright; this bundle does not grant redistribution rights to third-party material.

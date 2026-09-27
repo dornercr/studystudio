@@ -1,0 +1,1305 @@
+[
+  {
+    "id": "A.1",
+    "title": "Description, Prediction, Control",
+    "domain": "A",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C01.01",
+      "C07.01"
+    ]
+  },
+  {
+    "id": "A.2",
+    "title": "Philosophical Assumptions of Behavior Analysis",
+    "domain": "A",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C01.01",
+      "C01.02",
+      "C02.04",
+      "C07.01"
+    ]
+  },
+  {
+    "id": "A.3",
+    "title": "Radical Behaviorism",
+    "domain": "A",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C01.02",
+      "C29.01",
+      "C29.09"
+    ]
+  },
+  {
+    "id": "A.4",
+    "title": "Distinguish Among Branches of Behavior Analysis",
+    "domain": "A",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C01.02",
+      "C01.04"
+    ]
+  },
+  {
+    "id": "A.5",
+    "title": "The 7 Dimensions of ABA",
+    "domain": "A",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C01.03",
+      "C01.04"
+    ]
+  },
+  {
+    "id": "B.1",
+    "title": "Behavior, Response, and Response Class",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.01"
+    ]
+  },
+  {
+    "id": "B.2",
+    "title": "Distinguish Between Stimulus and Stimulus Class",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.02"
+    ]
+  },
+  {
+    "id": "B.3",
+    "title": "Respondent and Operant Conditioning",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.03",
+      "C02.04"
+    ]
+  },
+  {
+    "id": "B.4",
+    "title": "Positive and Negative Reinforcement Contingencies",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.04",
+      "C11.01",
+      "C12.01",
+      "C12.02",
+      "C12.03",
+      "C12.05",
+      "C29.06"
+    ]
+  },
+  {
+    "id": "B.5",
+    "title": "Positive and Negative Punishment Contingencies",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.04",
+      "C14.01",
+      "C15.01",
+      "C15.04",
+      "C29.06"
+    ]
+  },
+  {
+    "id": "B.6",
+    "title": "Automatic vs. Socially Mediated Contingencies",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.02",
+      "C02.04",
+      "C11.01",
+      "C12.03",
+      "C27.01"
+    ]
+  },
+  {
+    "id": "B.7",
+    "title": "Unconditioned, Conditioned, and Generalized Reinforcers",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.04",
+      "C11.02",
+      "C12.03",
+      "C23.01"
+    ]
+  },
+  {
+    "id": "B.8",
+    "title": "Unconditioned, Conditioned, and Generalized Punishers",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.04",
+      "C14.01",
+      "C16.04"
+    ]
+  },
+  {
+    "id": "B.9",
+    "title": "Simple Schedules of Reinforcement",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C13.01",
+      "C13.02",
+      "C13.03",
+      "C13.05",
+      "C13.07"
+    ]
+  },
+  {
+    "id": "B.10",
+    "title": "Concurrent, Multiple, Mixed, and Chained Schedules",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C13.06",
+      "C13.07"
+    ]
+  },
+  {
+    "id": "B.11",
+    "title": "Operant and Respondent Extinction",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.03",
+      "C24.01",
+      "C24.02",
+      "C24.03",
+      "C24.04",
+      "C24.05"
+    ]
+  },
+  {
+    "id": "B.12",
+    "title": "Examples of Stimulus Control",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.04",
+      "C17.01"
+    ]
+  },
+  {
+    "id": "B.13",
+    "title": "Examples of Stimulus Discrimination",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C17.01",
+      "C17.02"
+    ]
+  },
+  {
+    "id": "B.14",
+    "title": "Stimulus and Response Generalization",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.07",
+      "C17.01",
+      "C30.01"
+    ]
+  },
+  {
+    "id": "B.15",
+    "title": "Examples of Response Maintenance",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.07",
+      "C30.01"
+    ]
+  },
+  {
+    "id": "B.16",
+    "title": "Examples of Motivating Operations",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.01",
+      "C16.03",
+      "C16.04",
+      "C16.05",
+      "C16.06",
+      "C16.08"
+    ]
+  },
+  {
+    "id": "B.17",
+    "title": "Motivating Operations vs. Stimulus Control Distinction",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.02",
+      "C16.05",
+      "C17.01"
+    ]
+  },
+  {
+    "id": "B.18",
+    "title": "Rule-Governed and Contingency-Shaped Behavior",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.05",
+      "C20.06",
+      "C29.01",
+      "C29.02",
+      "C29.07",
+      "C29.09"
+    ]
+  },
+  {
+    "id": "B.19",
+    "title": "Identify and Distinguish among Verbal Operants",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C18.01",
+      "C18.02",
+      "C18.03",
+      "C18.04"
+    ]
+  },
+  {
+    "id": "B.20",
+    "title": "The Role of Multiple Control in Verbal Behavior",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.05",
+      "C18.02",
+      "C18.04"
+    ]
+  },
+  {
+    "id": "B.21",
+    "title": "Emergent Relations and Generative Performance",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C02.05",
+      "C18.02",
+      "C19.01",
+      "C19.03",
+      "C19.04",
+      "C19.05",
+      "C20.01",
+      "C20.02",
+      "C20.03",
+      "C20.04",
+      "C20.05",
+      "C20.06",
+      "C20.07"
+    ]
+  },
+  {
+    "id": "B.22",
+    "title": "Behavioral Momentum",
+    "domain": "B",
+    "status": "partial",
+    "note": "Selected momentum/resistance discussion; the high-probability sequence should not be treated as the entire momentum concept.",
+    "topics": [
+      "C24.04"
+    ]
+  },
+  {
+    "id": "B.23",
+    "title": "Understanding the Matching Law and Response Allocation",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C13.06",
+      "C25.02"
+    ]
+  },
+  {
+    "id": "B.24",
+    "title": "Imitation vs. Observational Learning",
+    "domain": "B",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C21.01",
+      "C21.03"
+    ]
+  },
+  {
+    "id": "C.1",
+    "title": "Create Operational Definitions of Behavior",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.05"
+    ]
+  },
+  {
+    "id": "C.2",
+    "title": "Measures of Behavior: Direct, Indirect, Permanent Products",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.02",
+      "C04.01",
+      "C04.04",
+      "C29.05"
+    ]
+  },
+  {
+    "id": "C.3",
+    "title": "Measure Occurrence: Count, Rate, and Percentage in ABA",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C04.02",
+      "C04.03"
+    ]
+  },
+  {
+    "id": "C.4",
+    "title": "Measuring Temporal Dimensions of Behavior",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C04.02",
+      "C04.03"
+    ]
+  },
+  {
+    "id": "C.5",
+    "title": "Continuous vs. Discontinuous Measurement Procedures",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C04.03",
+      "C04.06"
+    ]
+  },
+  {
+    "id": "C.6",
+    "title": "Designing and Applying Discontinuous Measurement Procedures",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C04.03"
+    ]
+  },
+  {
+    "id": "C.7",
+    "title": "Measure Efficiency",
+    "domain": "C",
+    "status": "partial",
+    "note": "Selected discussion of trials, instructional efficiency, and measurement. Not a comprehensive treatment of all task examples.",
+    "topics": [
+      "C04.02",
+      "C22.03"
+    ]
+  },
+  {
+    "id": "C.8",
+    "title": "Evaluate the Validity and Reliability of Measurement in ABA",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C05.01",
+      "C05.02",
+      "C05.03",
+      "C05.04",
+      "C05.05"
+    ]
+  },
+  {
+    "id": "C.9",
+    "title": "Selecting a Measurement Procedure",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C04.01",
+      "C04.04",
+      "C04.05",
+      "C04.06",
+      "C05.02"
+    ]
+  },
+  {
+    "id": "C.10",
+    "title": "Graphing Data in ABA",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C06.01",
+      "C06.02",
+      "C06.03"
+    ]
+  },
+  {
+    "id": "C.11",
+    "title": "Interpreting Graphed Data in ABA",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C06.01",
+      "C06.04",
+      "C13.03"
+    ]
+  },
+  {
+    "id": "C.12",
+    "title": "Measuring Procedural Integrity",
+    "domain": "C",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C10.03"
+    ]
+  },
+  {
+    "id": "D.1",
+    "title": "Distinguish between Dependent and Independent Variables",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C07.01",
+      "C07.02"
+    ]
+  },
+  {
+    "id": "D.2",
+    "title": "Distinguish between Internal and External Validity",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C07.01",
+      "C10.03",
+      "C10.05"
+    ]
+  },
+  {
+    "id": "D.3",
+    "title": "Identify Threats to Internal Validity",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C07.02",
+      "C10.03"
+    ]
+  },
+  {
+    "id": "D.4",
+    "title": "Features of Single-Case Experimental Designs (SCEDs)",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C07.01",
+      "C07.02",
+      "C07.03",
+      "C08.01",
+      "C09.01",
+      "C10.01",
+      "C10.05"
+    ]
+  },
+  {
+    "id": "D.5",
+    "title": "Strengths of Single-Case Experimental and Group Designs",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C10.01"
+    ]
+  },
+  {
+    "id": "D.6",
+    "title": "Interpret Data from Single-Case Experimental Designs",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C06.04",
+      "C07.03",
+      "C08.01",
+      "C08.02",
+      "C09.01",
+      "C09.02",
+      "C10.06"
+    ]
+  },
+  {
+    "id": "D.7",
+    "title": "Distinguish Among Types of Single-Case Experimental Designs",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C08.01",
+      "C08.02",
+      "C09.01",
+      "C09.02"
+    ]
+  },
+  {
+    "id": "D.8",
+    "title": "Rationales for Comparative, Component, & Parametric Analyses",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C07.02",
+      "C08.02",
+      "C10.02",
+      "C11.04"
+    ]
+  },
+  {
+    "id": "D.9",
+    "title": "Applying Single-Case Experimental Designs",
+    "domain": "D",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C08.01",
+      "C08.02",
+      "C09.01",
+      "C09.02",
+      "C10.02"
+    ]
+  },
+  {
+    "id": "E.1",
+    "title": "Core Principles of the Ethics Code",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.01",
+      "C31.02"
+    ]
+  },
+  {
+    "id": "E.2",
+    "title": "Risks of Unethical Behavior in ABA",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C12.06",
+      "C14.06",
+      "C24.06",
+      "C31.01",
+      "C31.04",
+      "C31.09",
+      "C31.10"
+    ]
+  },
+  {
+    "id": "E.3",
+    "title": "Developing and Maintaining Competence in ABA",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C22.07",
+      "C31.03",
+      "C31.10"
+    ]
+  },
+  {
+    "id": "E.4",
+    "title": "Confidential Information in ABA",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.04",
+      "C31.06"
+    ]
+  },
+  {
+    "id": "E.5",
+    "title": "Public Statements about Professional Activities",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.06"
+    ]
+  },
+  {
+    "id": "E.6",
+    "title": "Discontinuing Services or Supervision in Behavior Analysis",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.04"
+    ]
+  },
+  {
+    "id": "E.7",
+    "title": "Risks of Multiple Relationships and Mitigating Them",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.04",
+      "C31.08"
+    ]
+  },
+  {
+    "id": "E.8",
+    "title": "Interpersonal Skills of Behavior Analysts",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.05"
+    ]
+  },
+  {
+    "id": "E.9",
+    "title": "Cultural Humility in Behavior Analysis",
+    "domain": "E",
+    "status": "not-mapped",
+    "note": "No sufficiently specific section has been mapped. This is a coverage gap, not a claim that the topic is unimportant.",
+    "topics": []
+  },
+  {
+    "id": "E.10",
+    "title": "Cultural Responsiveness and Inclusivity in Behavior Analysis",
+    "domain": "E",
+    "status": "not-mapped",
+    "note": "No sufficiently specific section has been mapped. This is a coverage gap, not a claim that the topic is unimportant.",
+    "topics": []
+  },
+  {
+    "id": "E.11",
+    "title": "Personal Biases in Applied Behavior Analysis",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.01"
+    ]
+  },
+  {
+    "id": "E.12",
+    "title": "Service Delivery Requirements for BCBAs",
+    "domain": "E",
+    "status": "partial",
+    "note": "Historical ethics discussion only. The chapter predates the current Ethics Code; current requirements must be studied separately.",
+    "topics": [
+      "C31.02"
+    ]
+  },
+  {
+    "id": "F.1",
+    "title": "Relevant Information in Records",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.01"
+    ]
+  },
+  {
+    "id": "F.2",
+    "title": "Relevant Cultural Variables",
+    "domain": "F",
+    "status": "not-mapped",
+    "note": "No sufficiently specific section has been mapped. This is a coverage gap, not a claim that the topic is unimportant.",
+    "topics": []
+  },
+  {
+    "id": "F.3",
+    "title": "Assess Skill Strengths and Areas of Need",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.02",
+      "C18.05",
+      "C18.06",
+      "C18.07",
+      "C23.03"
+    ]
+  },
+  {
+    "id": "F.4",
+    "title": "Design and Evaluate Preference Assessments in ABA",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C11.03",
+      "C16.08"
+    ]
+  },
+  {
+    "id": "F.5",
+    "title": "Descriptive Assessments in ABA",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.02",
+      "C27.03",
+      "C27.04",
+      "C27.05"
+    ]
+  },
+  {
+    "id": "F.6",
+    "title": "Design and Evaluate Functional Analyses in ABA",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.08",
+      "C27.01",
+      "C27.02",
+      "C27.03",
+      "C27.04",
+      "C27.05"
+    ]
+  },
+  {
+    "id": "F.7",
+    "title": "Determining Need for Behavior-Analytic Services or Referral",
+    "domain": "F",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.01",
+      "C18.07",
+      "C31.07"
+    ]
+  },
+  {
+    "id": "F.8",
+    "title": "Socially Significant ABA Procedures and Goals",
+    "domain": "F",
+    "status": "partial",
+    "note": "Strong social-significance discussion; not a complete treatment of the current task’s explicit cultural-responsiveness component.",
+    "topics": [
+      "C03.03",
+      "C03.04",
+      "C10.04",
+      "C31.07"
+    ]
+  },
+  {
+    "id": "G.1",
+    "title": "Positive and Negative Reinforcement Procedures",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C11.01",
+      "C11.03",
+      "C11.04",
+      "C11.05",
+      "C12.01",
+      "C12.04"
+    ]
+  },
+  {
+    "id": "G.2",
+    "title": "Differential Reinforcement Procedures in ABA",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C13.05",
+      "C24.02",
+      "C24.05",
+      "C25.01",
+      "C25.02",
+      "C25.03",
+      "C25.04",
+      "C26.04"
+    ]
+  },
+  {
+    "id": "G.3",
+    "title": "Design and Evaluate Time-Based Reinforcement Schedules",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C26.02"
+    ]
+  },
+  {
+    "id": "G.4",
+    "title": "Establish and Use Conditioned Reinforcers",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C11.02",
+      "C11.05",
+      "C22.04",
+      "C28.01"
+    ]
+  },
+  {
+    "id": "G.5",
+    "title": "Incorporating MOs and Discriminative Stimuli",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C16.01",
+      "C16.06",
+      "C16.08",
+      "C18.06",
+      "C26.01",
+      "C26.03",
+      "C29.04"
+    ]
+  },
+  {
+    "id": "G.6",
+    "title": "Simple and Conditional Discriminations",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C17.02",
+      "C18.03",
+      "C18.06",
+      "C19.02"
+    ]
+  },
+  {
+    "id": "G.7",
+    "title": "Stimulus and Response Prompting Procedures",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C17.02",
+      "C17.03",
+      "C22.03",
+      "C29.04"
+    ]
+  },
+  {
+    "id": "G.8",
+    "title": "Procedures to Fade Stimulus and Response Prompts",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C17.03"
+    ]
+  },
+  {
+    "id": "G.9",
+    "title": "Modeling, Imitation, and Video Modeling Procedures",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C21.01",
+      "C21.02",
+      "C21.03"
+    ]
+  },
+  {
+    "id": "G.10",
+    "title": "Design and Evaluate Instructions and Rules",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C26.03",
+      "C28.03",
+      "C29.02",
+      "C29.07"
+    ]
+  },
+  {
+    "id": "G.11",
+    "title": "Shape Dimensions of Behavior with Shaping in ABA",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C22.01",
+      "C22.02",
+      "C22.03",
+      "C22.04",
+      "C22.05",
+      "C22.06",
+      "C22.07"
+    ]
+  },
+  {
+    "id": "G.12",
+    "title": "Select and Implement Chaining Procedures and Task Analysis",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C23.01",
+      "C23.02",
+      "C23.03",
+      "C23.04",
+      "C23.05",
+      "C23.06",
+      "C23.07",
+      "C23.08"
+    ]
+  },
+  {
+    "id": "G.13",
+    "title": "Trial-Based and Free-Operant Procedures",
+    "domain": "G",
+    "status": "partial",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C19.02"
+    ]
+  },
+  {
+    "id": "G.14",
+    "title": "Design and Evaluate Group Contingencies",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C28.02"
+    ]
+  },
+  {
+    "id": "G.15",
+    "title": "Procedures to Promote Stimulus and Response Generalization",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C13.05",
+      "C16.07",
+      "C30.02",
+      "C30.03",
+      "C30.05"
+    ]
+  },
+  {
+    "id": "G.16",
+    "title": "Maintain Desired Behavior Change Following Intervention",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C11.05",
+      "C13.01",
+      "C13.04",
+      "C16.07",
+      "C28.01",
+      "C29.03",
+      "C29.05",
+      "C30.02",
+      "C30.03",
+      "C30.04",
+      "C30.05"
+    ]
+  },
+  {
+    "id": "G.17",
+    "title": "Design and Evaluate Positive and Negative Punishment",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C14.02",
+      "C14.04",
+      "C14.05",
+      "C14.06",
+      "C14.07",
+      "C15.01",
+      "C15.02",
+      "C15.03",
+      "C15.04",
+      "C15.05",
+      "C15.06"
+    ]
+  },
+  {
+    "id": "G.18",
+    "title": "Evaluate Emotional and Elicited Effects",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C12.06",
+      "C14.03",
+      "C15.07",
+      "C24.03"
+    ]
+  },
+  {
+    "id": "G.19",
+    "title": "Promote Emergent Relations and Generative Performance",
+    "domain": "G",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C18.05",
+      "C18.06",
+      "C19.01",
+      "C19.02",
+      "C19.03",
+      "C19.04",
+      "C19.05",
+      "C20.03",
+      "C20.04"
+    ]
+  },
+  {
+    "id": "H.1",
+    "title": "Develop Intervention Goals in Observable and Measurable Terms",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.05",
+      "C03.06",
+      "C22.06",
+      "C28.03",
+      "C29.08"
+    ]
+  },
+  {
+    "id": "H.2",
+    "title": "Identify and Recommend Interventions",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.04",
+      "C10.04",
+      "C10.06",
+      "C14.06",
+      "C23.05",
+      "C24.06",
+      "C26.01",
+      "C26.05",
+      "C27.02",
+      "C27.04",
+      "C31.07"
+    ]
+  },
+  {
+    "id": "H.3",
+    "title": "Select Socially Valid Alternative Behaviors",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.03",
+      "C12.04",
+      "C23.06",
+      "C25.02",
+      "C26.04",
+      "C27.02",
+      "C27.05"
+    ]
+  },
+  {
+    "id": "H.4",
+    "title": "Plan for and Mitigate Possible Unwanted Effects",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C12.06",
+      "C14.03",
+      "C14.05",
+      "C14.07",
+      "C15.03",
+      "C15.06",
+      "C15.07",
+      "C24.05",
+      "C24.06",
+      "C26.05"
+    ]
+  },
+  {
+    "id": "H.5",
+    "title": "Plan for and Mitigate Relapse of the Target Behavior",
+    "domain": "H",
+    "status": "partial",
+    "note": "Selected extinction, resurgence, and generalization concepts, not exhaustive coverage of all relapse processes.",
+    "topics": [
+      "C13.04",
+      "C24.03",
+      "C30.04"
+    ]
+  },
+  {
+    "id": "H.6",
+    "title": "Make Data-Based Decisions About Procedural Integrity",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C10.03",
+      "C15.07"
+    ]
+  },
+  {
+    "id": "H.7",
+    "title": "Decisions About Intervention Effectiveness and Modification",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C03.06",
+      "C10.04",
+      "C10.06",
+      "C14.05",
+      "C23.07",
+      "C23.08",
+      "C29.08",
+      "C30.04"
+    ]
+  },
+  {
+    "id": "H.8",
+    "title": "Collaborate with Others to Support and Enhance Services",
+    "domain": "H",
+    "status": "related",
+    "note": "Related textbook sections, selected by editorial judgment; this tag does not certify complete coverage of the exam task.",
+    "topics": [
+      "C30.05",
+      "C31.05"
+    ]
+  },
+  {
+    "id": "I.1",
+    "title": "Identify the Benefits of Using Behavior-Analytic Supervision",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C31.03",
+      "C31.09"
+    ]
+  },
+  {
+    "id": "I.2",
+    "title": "Strategies for Effective Supervisory Relationships",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C31.03"
+    ]
+  },
+  {
+    "id": "I.3",
+    "title": "Methods that Promote Equity in Supervision Practices",
+    "domain": "I",
+    "status": "not-mapped",
+    "note": "No sufficiently specific section has been mapped. This is a coverage gap, not a claim that the topic is unimportant.",
+    "topics": []
+  },
+  {
+    "id": "I.4",
+    "title": "Select Supervision Goals",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C31.03"
+    ]
+  },
+  {
+    "id": "I.5",
+    "title": "Performance Management Procedures",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C21.02",
+      "C31.03",
+      "C31.09"
+    ]
+  },
+  {
+    "id": "I.6",
+    "title": "Apply a Function-Based Approach to Supervisee Behavior",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C12.05"
+    ]
+  },
+  {
+    "id": "I.7",
+    "title": "Decisions About the Efficacy of Supervisory Practices",
+    "domain": "I",
+    "status": "partial",
+    "note": "Foundational concepts or selected supervision discussion only, not a full modern personnel-supervision curriculum.",
+    "topics": [
+      "C31.09"
+    ]
+  }
+]

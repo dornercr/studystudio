@@ -1,0 +1,17 @@
+{
+  "passed": 11,
+  "tests": [
+    "Separate Cooper curriculum: 31 chapters, 170 lessons + glossary, 1177 cards, 170 scenarios",
+    "Progress and notes remain isolated; switching curricula restores position",
+    "All 31 chapters render in outline, flashcard, and scenario modes",
+    "Context retained between modes; flashcard ratings and four option-specific rationales work",
+    "104-task editorial crosswalk, partial/unmapped statuses, domain navigation, and filters",
+    "Glossary search, extracted definition cards, exact page references, no invented glossary scenarios",
+    "908-page local source search, printed/PDF page jump, selected original images, next page",
+    "Reinitialization preserves both curriculum progress namespaces",
+    "Portable textbook study-pack export/import retains chapters, cards, glossary, and mappings",
+    "390px and 320px mobile layouts, all modes, chapter controls, no horizontal overflow",
+    "No JavaScript errors or external network requests"
+  ],
+  "limitations": "Storage double used; native file-origin persistence is browser-dependent."
+}

@@ -24,7 +24,7 @@
   const state = {
     courseId:store.ui.courseId || 'bcba-6', mode:store.ui.mode || 'outline', topicId:null,
     cardId:null, scenarioId:null, flipped:false, query:'', domain:'all', bookmarksOnly:false,
-    scope:'all', expanded:new Set(['A','1']), sidebarOpen:false, orders:{flashcards:[],scenarios:[]},
+    scope:'all', chapter:'all', task:'all', bookNav:'chapters', expanded:new Set(['A','1']), sidebarOpen:false, orders:{flashcards:[],scenarios:[]},
     drafts:{}, retries:new Set(), reviewHoldId:null, toastTimer:null
   };
   const ICONS = {
@@ -76,16 +76,22 @@
     const pos=store.ui.positions[state.courseId] || {};
     state.topicId=pos.topicId || course().topics[0]?.id || null;
     state.cardId=pos.cardId || null;state.scenarioId=pos.scenarioId || null;
-    state.expanded.add(topic()?.domain || course().domains[0]?.id || 'A');
+    state.expanded.add(topic()?.domain || course().domains[0]?.id || 'A');state.expanded.add('CH'+(topic()?.chapter??1));if(isBook())state.scope='chapter';
   }
   function visibleTopics() {
-    const q=state.query.trim().toLocaleLowerCase();const p=progress();
-    return course().topics.filter(t=>(state.domain==='all'||t.domain===state.domain)&&(!state.bookmarksOnly||p.bookmarks.includes(t.id))&&(!q||`${t.id} ${t.title} ${t.summary} ${t.concepts.map(c=>`${c.term} ${c.definition}`).join(' ')}`.toLocaleLowerCase().includes(q)));
+    const q=state.query.trim().toLocaleLowerCase(),p=progress();
+    return course().topics.filter(t=>
+      (state.domain==='all'||t.domain===state.domain||t.domains?.includes(state.domain))&&
+      (!isBook()||state.chapter==='all'||String(t.chapter)===state.chapter)&&
+      (!isBook()||state.task==='all'||t.tasks?.includes(state.task))&&
+      (!state.bookmarksOnly||p.bookmarks.includes(t.id))&&
+      (!q||`${t.id} ${t.title} ${t.chapterTitle||''} ${(t.tasks||[]).join(' ')} ${t.summary} ${t.concepts.map(c=>`${c.term} ${c.definition}`).join(' ')}`.toLocaleLowerCase().includes(q)));
   }
   function deck(mode=state.mode) {
     let list=visibleTopics();const current=topic();const p=progress();
     if(state.scope==='topic')list=list.filter(t=>t.id===state.topicId);
     if(state.scope==='domain'&&current)list=list.filter(t=>t.domain===current.domain);
+    if(state.scope==='chapter'&&current)list=list.filter(t=>t.chapter===current.chapter);
     if(state.scope==='bookmarked')list=list.filter(t=>p.bookmarks.includes(t.id));
     let items=mode==='flashcards'?list.flatMap(t=>t.cards.map(c=>({...c,topic:t}))):list.filter(t=>t.scenario).map(t=>({...t.scenario,topic:t}));
     if(state.scope==='review')items=items.filter(item=>mode==='flashcards'?p.cards[item.id]?.rating==='again':(p.scenarios[item.id]?.correct===false || item.id===state.reviewHoldId));
@@ -106,7 +112,7 @@
       const item=activeItem();
       if(item){state.topicId=item.topic.id;if(state.mode==='flashcards')state.cardId=item.id;else state.scenarioId=item.id;}
     }
-    state.expanded.add(topic()?.domain);
+    state.expanded.add(topic()?.domain);state.expanded.add('CH'+(topic()?.chapter??1));
   }
   function totals() {const t=course().topics;return {topics:t.length,cards:t.reduce((n,t)=>n+t.cards.length,0),scenarios:t.filter(t=>t.scenario).length};}
   function stats() {
@@ -132,7 +138,7 @@
           <div class="search-box mt-4">${icon('search')}<input id="topic-search" type="search" placeholder="Find a topic or concept" aria-label="Search topics" autocomplete="off"><kbd class="key">/</kbd></div>
         </div>
         <div class="px-5 pb-3 flex gap-2"><button id="all-topics-button" class="flex-1 text-left text-[11px] font-semibold px-3 py-2 rounded-lg bg-brand-soft text-brand" data-action="all-topics">All topics <span id="all-count" class="ml-1 opacity-60"></span></button><button id="saved-filter" class="icon-button" data-action="filter-bookmarks" aria-label="Show bookmarked topics" title="Bookmarked topics">${icon('star')}</button></div>
-        <div class="px-6 pb-2 flex justify-between"><span class="eyebrow">Course outline</span><span id="filtered-count" class="text-[10px] text-muted"></span></div>
+        <div id="book-nav-controls" class="px-5 pb-3"></div><div class="px-6 pb-2 flex justify-between"><span class="eyebrow">Course outline</span><span id="filtered-count" class="text-[10px] text-muted"></span></div>
         <nav class="nav-scroll" id="topic-nav" aria-label="Topics"></nav>
         <div class="sidebar-bottom" id="sidebar-progress"></div>
       </aside>
@@ -142,7 +148,7 @@
         <section class="mb-6"><div class="flex items-center gap-2 mb-3"><span class="pill bg-brand-soft text-brand">YOUR STUDY SPACE</span><span class="text-[10px] text-muted" id="course-domain-count"></span></div><h1 class="course-title text-[34px] font-bold tracking-tight leading-tight mb-2">Make it make sense.</h1><p class="text-[13px] text-muted leading-relaxed" id="course-description">Read it. Recall it. Put it into practice.</p></section>
         <div class="grid grid-cols-3 gap-3 mb-6 mode-tabs" id="mode-tabs" role="group" aria-label="Choose study material"></div>
         <div class="workspace-toolbar flex items-center justify-between gap-3 mb-4 flex-wrap"><div class="flex items-center gap-2"><span class="eyebrow" id="workspace-label">THE OUTLINE</span><span id="filter-status"></span></div><div class="flex items-center gap-2"><label for="domain-select" class="sr-only">Filter domain</label><select id="domain-select" class="select-small" aria-label="Filter by domain"></select><button id="large-text" class="icon-button" data-action="large-text" aria-label="Toggle larger reading text" title="Larger reading text">${icon('type')}</button></div></div>
-        <div id="workspace" tabindex="-1"></div>
+        <div id="book-toolbar" class="mb-4"></div><div id="workspace" tabindex="-1"></div>
         <footer class="source-notice flex items-center justify-between gap-4 mt-5 text-[10px] text-muted flex-wrap"><span id="pack-notice"></span><button class="source-link" data-action="sources">Content &amp; source notes ${icon('chevron')}</button></footer>
       </div></main>`;
     renderAll();
@@ -152,9 +158,9 @@
     document.body.classList.toggle('large-reading',!!store.ui.large);
     const c=course(), t=totals();
     $('#course-select').innerHTML=courses().map(c=>`<option value="${escape(c.id)}" ${c.id===state.courseId?'selected':''}>${escape(c.title)}</option>`).join('');
-    $('#breadcrumb-course').textContent=c.id==='bcba-6'?'BCBA · 6th Edition':c.title;
+    $('#breadcrumb-course').textContent=c.id==='bcba-6'?'BCBA · 6th Edition':isBook()?'Cooper · Third Edition':c.title;
     $('#course-description').textContent=c.id==='bcba-6'?'A clear path from understanding a concept to using it. One topic at a time.':c.description;
-    $('#course-domain-count').textContent=`${c.domains.length} ${c.domains.length===1?'domain':'domains'} · ${t.topics} topics`;
+    $('#course-domain-count').textContent=isBook()?`31 chapters · 170 lessons + glossary · separate curriculum`:`${c.domains.length} ${c.domains.length===1?'domain':'domains'} · ${t.topics} topics`;
     $('#all-count').textContent=t.topics;
     $('#saved-filter').classList.toggle('active',state.bookmarksOnly);
     $('#saved-filter').setAttribute('aria-pressed',String(state.bookmarksOnly));
@@ -162,15 +168,16 @@
     $('#large-text').setAttribute('aria-pressed',String(!!store.ui.large));
     $('#topic-search').value=state.query;
     $('#domain-select').innerHTML=`<option value="all">All domains</option>`+c.domains.map(d=>`<option value="${escape(d.id)}" ${state.domain===d.id?'selected':''}>${escape(d.id)} · ${escape(d.title)}</option>`).join('');
-    $('#mode-tabs').innerHTML=modes.map(m=>`<button class="mode-tab ${state.mode===m.id?'active':''}" data-action="mode" data-mode="${m.id}" aria-pressed="${state.mode===m.id}"><span class="mode-icon ${m.color}">${icon(m.icon)}</span><span class="min-w-0"><span class="mode-label block text-[13px] font-semibold ${state.mode===m.id?'text-brand':'text-ink'}">${m.label}</span><span class="mode-count block mt-1 text-[10px] text-muted">${m.id==='outline'?`${t.topics} topics`:m.id==='flashcards'?`${t.cards} cards`:`${t.scenarios} cases`}</span></span></button>`).join('');
+    $('#mode-tabs').innerHTML=modes.map(m=>`<button class="mode-tab ${state.mode===m.id?'active':''}" data-action="mode" data-mode="${m.id}" aria-pressed="${state.mode===m.id}"><span class="mode-icon ${m.color}">${icon(m.icon)}</span><span class="min-w-0"><span class="mode-label block text-[13px] font-semibold ${state.mode===m.id?'text-brand':'text-ink'}">${m.label}</span><span class="mode-count block mt-1 text-[10px] text-muted">${m.id==='outline'?(isBook()?'170 lessons + glossary':`${t.topics} topics`):m.id==='flashcards'?`${t.cards} cards`:`${t.scenarios} cases`}</span></span></button>`).join('');
     $('#workspace-label').textContent={outline:'EXPLORE THE OUTLINE',flashcards:'TRAIN YOUR RECALL',scenarios:'PUT IT INTO PRACTICE'}[state.mode];
     $('#filter-status').innerHTML=state.query||state.bookmarksOnly?`<button class="filter-chip" data-action="clear-filters">${escape(state.query?`“${state.query.length>22?state.query.slice(0,22)+'…':state.query}”`:'Saved topics')} ${icon('close')}</button>`:'';
-    $('#pack-notice').textContent=c.id==='bcba-6'?'Independent study pack · Original practice, not official exam items.':'Your study material · Stored locally in this browser.';
+    $('#pack-notice').textContent=c.id==='bcba-6'?'Independent study pack · Original practice, not official exam items.':isBook()?'Textbook-derived companion · Editorial crosswalk · Original scenarios':'Your study material · Stored locally in this browser.';
     $('#storage-warning').innerHTML=storageOK?'':'<div class="storage-warning">Browser storage is unavailable. Your work is usable in this session; export a backup to keep your progress.</div>';
-    renderSidebar();renderWorkspace();renderSidebarProgress();renderDrawer();remember();
+    renderBookControls();renderSidebar();renderWorkspace();renderSidebarProgress();renderDrawer();remember();
   }
   function renderSidebar() {
     const list=visibleTopics(),c=course(),p=progress();
+    if(isBook())return renderBookSidebar(list,c,p);
     $('#filtered-count').textContent=list.length===c.topics.length?'':`${list.length} shown`;
     $('#topic-nav').innerHTML=c.domains.map(d=>{
       const ts=list.filter(t=>t.domain===d.id);if(!ts.length)return '';
@@ -184,21 +191,21 @@
   }
   function renderDrawer() {$('#sidebar').classList.toggle('open',state.sidebarOpen);$('#drawer-overlay').classList.toggle('show',state.sidebarOpen);}
   function bookmarkButton(t) {const saved=progress().bookmarks.includes(t.id);return `<button class="icon-button ${saved?'active':''}" data-action="bookmark" aria-label="${saved?'Remove bookmark':'Bookmark this topic'}" aria-pressed="${saved}" title="${saved?'Remove bookmark':'Bookmark topic'}">${icon('star')}</button>`;}
-  function topicBadge(t) {return `<span class="pill bg-brand-soft text-brand">DOMAIN ${escape(t.domain)}</span><span class="text-[10px] text-muted">${escape(t.id)}</span>`;}
+  function topicBadge(t) {if(isBook())return bookTopicBadge(t);return `<span class="pill bg-brand-soft text-brand">DOMAIN ${escape(t.domain)}</span><span class="text-[10px] text-muted">${escape(t.id)}</span>`;}
   function renderWorkspace() {
     if(!course().topics.length){$('#workspace').innerHTML=`<section class="panel empty fade-in">${icon('book')}<h2>Make this space yours.</h2><p>Add your own topic, question-and-answer cards, and a practice scenario. Or import a study pack to start another curriculum.</p><div class="flex flex-wrap gap-3 justify-center"><button class="btn btn-primary" data-action="add-topic">${icon('plus')} Add a topic</button><button class="btn" data-action="import">${icon('upload')} Import study pack</button></div></section>`;return;}
     if(!visibleTopics().length){$('#workspace').innerHTML=`<section class="panel empty fade-in">${icon('search')}<h2>No matching topics.</h2><p>Try another search, select all domains, or clear the saved-topic filter.</p><button class="btn btn-primary" data-action="clear-filters">Clear filters</button></section>`;return;}
     const t=topic();
-    const content=state.mode==='outline'?renderOutline(t):state.mode==='flashcards'?renderFlashcards():renderScenario();
+    const content=(state.mode==='outline'?(t.kind==='glossary'?renderGlossaryOutline(t):renderOutline(t)):state.mode==='flashcards'?renderFlashcards():renderScenario())+(isBook()&&state.mode!=='outline'&&activeItem()?sourceLine({...t,pages:activeItem().pages||t.pages}):'');
     $('#workspace').innerHTML=`<div class="content-grid fade-in"><section class="min-w-0">${content}</section><aside class="right-rail" aria-label="Topic support and progress">${renderRail(t)}</aside></div>`;
   }
-  function sourceLine(t) {const u=safeURL(t.source);return `<div class="flex items-center justify-between gap-3 flex-wrap mt-4"><span class="text-[9px] text-muted">${course().id==='bcba-6'?'Original supplemental notes · Topic order from your supplied index':'User-authored study material'}</span>${u?`<a class="source-link" href="${escape(u)}" target="_blank" rel="noopener noreferrer">Linked topic article ${icon('external')}</a>`:''}</div>`;}
+  function sourceLine(t) {if(isBook())return bookSourceLine(t);const u=safeURL(t.source);return `<div class="flex items-center justify-between gap-3 flex-wrap mt-4"><span class="text-[9px] text-muted">${course().id==='bcba-6'?'Original supplemental notes · Topic order from your supplied index':'User-authored study material'}</span>${u?`<a class="source-link" href="${escape(u)}" target="_blank" rel="noopener noreferrer">Linked topic article ${icon('external')}</a>`:''}</div>`;}
   function renderOutline(t) {
     const list=visibleTopics(),index=list.findIndex(x=>x.id===t.id),read=progress().reviewed.includes(t.id);
-    return `<article class="panel"><div class="lesson-inner"><div class="flex items-center justify-between gap-3"><div class="flex items-center gap-2 flex-wrap">${topicBadge(t)}<span class="text-[10px] text-muted">· &nbsp; Topic ${index+1} of ${list.length}</span></div>${bookmarkButton(t)}</div><h2 class="lesson-heading">${escape(t.title)}</h2><p class="reading mb-5">${escape(t.summary)}</p><div class="flex items-center gap-2 mt-6 mb-1"><span class="eyebrow">The key ideas</span><div class="h-px flex-1 bg-line"></div></div><div>${t.concepts.map((c,i)=>`<section class="concept" id="concept-${i}"><span class="concept-number">${String(i+1).padStart(2,'0')}</span><div><h3>${escape(c.term)}</h3><p>${escape(c.definition)}</p></div></section>`).join('')}</div>${t.takeaway?`<div class="takeaway"><span class="icon-sm pt-0.5">${icon('bulb')}</span><div><span class="text-[11px] font-semibold text-brand">Keep this distinction in mind</span><p>${escape(t.takeaway)}</p></div></div>`:''}${sourceLine(t)}</div><div class="lesson-bottom border-t border-line px-6 py-4 flex items-center justify-between gap-2"><button class="btn" data-action="previous" ${index<=0?'disabled':''}>${icon('left')} Previous</button><button class="btn ${read?'btn-success':'btn-primary'}" data-action="reviewed" aria-pressed="${read}">${icon('check')} ${read?'Reviewed':'Mark reviewed'}</button><button class="btn" data-action="next" ${index>=list.length-1?'disabled':''}>Next ${icon('right')}</button></div></article><div class="flex items-center justify-between gap-3 mt-3 px-1"><span class="text-[10px] text-muted">Move at your own pace. <kbd class="key">←</kbd> <kbd class="key">→</kbd> to navigate</span>${course().id==='bcba-6'?`<button class="source-link" data-action="mode" data-mode="flashcards">Try this topic’s flashcards ${icon('right')}</button>`:`<button class="source-link" data-action="edit-topic">Edit this topic ${icon('edit')}</button>`}</div>`;
+    return `<article class="panel"><div class="lesson-inner"><div class="flex items-center justify-between gap-3"><div class="flex items-center gap-2 flex-wrap">${topicBadge(t)}<span class="text-[10px] text-muted">· &nbsp; Topic ${index+1} of ${list.length}</span></div>${bookmarkButton(t)}</div><h2 class="lesson-heading">${escape(t.title)}</h2><p class="reading mb-5">${escape(t.summary)}</p><div class="flex items-center gap-2 mt-6 mb-1"><span class="eyebrow">The key ideas</span><div class="h-px flex-1 bg-line"></div></div><div>${t.concepts.map((c,i)=>`<section class="concept" id="concept-${i}"><span class="concept-number">${String(i+1).padStart(2,'0')}</span><div><h3>${escape(c.term)}</h3><p>${escape(c.definition)}</p></div></section>`).join('')}</div>${t.takeaway?`<div class="takeaway"><span class="icon-sm pt-0.5">${icon('bulb')}</span><div><span class="text-[11px] font-semibold text-brand">Keep this distinction in mind</span><p>${escape(t.takeaway)}</p></div></div>`:''}${sourceLine(t)}</div><div class="lesson-bottom border-t border-line px-6 py-4 flex items-center justify-between gap-2"><button class="btn" data-action="previous" ${index<=0?'disabled':''}>${icon('left')} Previous</button><button class="btn ${read?'btn-success':'btn-primary'}" data-action="reviewed" aria-pressed="${read}">${icon('check')} ${read?'Reviewed':'Mark reviewed'}</button><button class="btn" data-action="next" ${index>=list.length-1?'disabled':''}>Next ${icon('right')}</button></div></article><div class="flex items-center justify-between gap-3 mt-3 px-1"><span class="text-[10px] text-muted">Move at your own pace. <kbd class="key">←</kbd> <kbd class="key">→</kbd> to navigate</span>${course().id==='bcba-6'||isBook()?`<button class="source-link" data-action="mode" data-mode="flashcards">Try this topic’s flashcards ${icon('right')}</button>`:`<button class="source-link" data-action="edit-topic">Edit this topic ${icon('edit')}</button>`}</div>`;
   }
-  function scopeControl() {return `<select id="scope-select" class="select-small" aria-label="Choose practice scope">${[['all','All filtered topics'],['topic','This topic only'],['domain','This topic’s domain'],['bookmarked','Bookmarked topics'],['review','Needs another look']].map(([id,text])=>`<option value="${id}" ${state.scope===id?'selected':''}>${text}</option>`).join('')}</select>`;}
-  function deckEmpty() {return `<section class="panel"><div class="p-5 flex justify-end">${scopeControl()}</div><div class="empty">${icon('layers')}<h2>Nothing in this practice set yet.</h2><p>${state.scope==='review'?'Cards marked “Review again” and scenarios answered incorrectly appear here.':'Try all filtered topics, bookmark a topic, or add material to this topic.'}</p><button class="btn btn-primary" data-action="all-practice">Study all filtered topics</button>${course().id!=='bcba-6'?'<button class="btn ml-2" data-action="edit-topic">Edit topic</button>':''}</div></section>`;}
+  function scopeControl() {return `<select id="scope-select" class="select-small" aria-label="Choose practice scope">${[['all','All filtered topics'],['topic','This topic only'],...(isBook()?[['chapter','This chapter only']]:[]),['domain','This topic’s domain'],['bookmarked','Bookmarked topics'],['review','Needs another look']].map(([id,text])=>`<option value="${id}" ${state.scope===id?'selected':''}>${text}</option>`).join('')}</select>`;}
+  function deckEmpty() {return `<section class="panel"><div class="p-5 flex justify-end">${scopeControl()}</div><div class="empty">${icon('layers')}<h2>Nothing in this practice set yet.</h2><p>${state.scope==='review'?'Cards marked “Review again” and scenarios answered incorrectly appear here.':'Try all filtered topics, bookmark a topic, or add material to this topic.'}</p><button class="btn btn-primary" data-action="all-practice">Study all filtered topics</button>${course().id!=='bcba-6'&&!isBook()?'<button class="btn ml-2" data-action="edit-topic">Edit topic</button>':''}</div></section>`;}
   function renderFlashcards() {
     const list=deck(),item=activeItem();if(!item)return deckEmpty();const i=list.findIndex(c=>c.id===item.id),p=progress(),rating=p.cards[item.id]?.rating;
     return `<div class="panel p-5 sm:p-6"><div class="flex items-center justify-between gap-2 flex-wrap mb-5">${scopeControl()}<button class="btn btn-text" data-action="shuffle" aria-label="Shuffle flashcards">${icon('shuffle')} Shuffle</button></div><div class="flex items-center justify-between gap-3 mb-4"><div class="flex items-center gap-2 flex-wrap">${topicBadge(item.topic)}<span class="text-[10px] text-muted">${escape(item.topic.title)}</span></div>${bookmarkButton(item.topic)}</div><div class="relative z-0"><button class="deck-card ${state.flipped?'answer':''}" data-action="flip" aria-label="${state.flipped?'Answer shown. Activate to show question.':'Flashcard question. Activate to reveal answer.'}" aria-pressed="${state.flipped}"><span class="flex items-center justify-between w-full"><span class="eyebrow">${state.flipped?'THE ANSWER':'YOUR QUESTION'}</span><span class="text-[11px] text-muted">${i+1} <span class="opacity-50">/ ${list.length}</span></span></span><span class="${state.flipped?'card-answer':'card-question'}">${escape(state.flipped?item.answer:item.question)}</span><span class="flip-hint">${icon('rotate')} ${state.flipped?'Click to see the question':'Think it through. Click to reveal.'}</span></button></div><div class="text-center text-[10px] text-muted mt-5 mb-4">${rating==='known'?'You marked this card as known.':rating==='again'?'You marked this card for another look.':'Give yourself a moment before revealing the answer.'} &nbsp; <kbd class="key">Space</kbd> to flip</div><div class="deck-actions flex items-center justify-center gap-3 mb-5">${state.flipped?`<button class="btn" data-action="rate-card" data-rating="again">${icon('rotate')} Review again</button><button class="btn btn-primary" data-action="rate-card" data-rating="known">${icon('check')} Got it</button>`:`<button class="btn btn-primary px-7" data-action="flip">${icon('layers')} Reveal answer</button>`}</div><div class="border-t border-line pt-4 flex justify-between items-center gap-3"><button class="btn" data-action="previous" ${i<=0?'disabled':''}>${icon('left')} Previous</button><span class="text-[10px] text-muted">${list.filter(c=>p.cards[c.id]?.rating==='known').length} / ${list.length} known in this set</span><button class="btn" data-action="next" ${i>=list.length-1?'disabled':''}>Next ${icon('right')}</button></div></div><p class="text-[10px] text-muted text-center mt-3">Original recall cards. Confidence ratings are self-assessments, not exam-readiness scores.</p>`;
@@ -209,7 +216,7 @@
     return `<article class="panel"><div class="lesson-inner"><div class="flex justify-between items-center gap-2 flex-wrap mb-5">${scopeControl()}<button class="btn btn-text" data-action="shuffle" aria-label="Shuffle scenarios">${icon('shuffle')} Shuffle</button></div><div class="flex items-center justify-between gap-3"><div class="flex items-center gap-2 flex-wrap">${topicBadge(item.topic)}<span class="text-[10px] text-muted">· &nbsp; Case ${i+1} of ${list.length}</span></div>${bookmarkButton(item.topic)}</div><h2 class="lesson-heading text-[25px]">A concept. A real-world context.</h2><p class="text-[11px] text-muted mb-4">${escape(item.topic.title)} · Original hypothetical scenario</p><p class="reading text-ink mb-5">${escape(item.prompt)}</p><div role="group" aria-label="Answer choices">${item.options.map((option,n)=>{
       const cls=result?(n===item.correctIndex?'correct':n===selected?'incorrect':''):(n===selected?'selected':'');
       return `<button class="choice ${cls}" data-action="choose-answer" data-index="${n}" aria-pressed="${n===selected}" ${result?'disabled':''}><span class="choice-letter">${String.fromCharCode(65+n)}</span><span class="flex-1">${escape(option)}</span>${result&&n===item.correctIndex?`<span class="icon-sm">${icon('check')}</span>`:result&&n===selected?`<span class="icon-sm">${icon('close')}</span>`:''}</button>`;
-    }).join('')}</div>${result?`<div class="feedback ${result.correct?'':'incorrect'}" role="status"><div class="flex items-center gap-2"><span class="icon-sm ${result.correct?'text-mint-ink':'text-peach-ink'}">${icon(result.correct?'checkCircle':'bulb')}</span><strong class="text-[13px] ${result.correct?'text-mint-ink':'text-peach-ink'}">${result.correct?'That’s right.':'Not quite. Here’s the distinction.'}</strong></div><p>${escape(item.explanation)}</p><div class="flex justify-between gap-2 mt-3"><span class="text-[10px] text-muted">Correct answer: ${String.fromCharCode(65+item.correctIndex)} · Attempt ${result.attempts}</span><button class="source-link" data-action="retry-scenario">Try again ${icon('rotate')}</button></div></div>`:''}</div><div class="lesson-bottom border-t border-line px-6 py-4 flex items-center justify-between gap-2"><button class="btn" data-action="previous" ${i<=0?'disabled':''}>${icon('left')} Previous</button>${result?`<button class="btn btn-primary" data-action="next" ${i>=list.length-1?'disabled':''}>Next scenario ${icon('right')}</button>`:`<button class="btn btn-primary" data-action="check-answer" ${Number.isInteger(selected)?'':'disabled'}>Check answer ${icon('check')}</button>`}</div></article><p class="text-[10px] text-muted text-center mt-3">Practice reasoning, not memorized exam items. <kbd class="key">1–4</kbd> choose · <kbd class="key">Enter</kbd> check</p>`;
+    }).join('')}</div>${result?`<div class="feedback ${result.correct?'':'incorrect'}" role="status"><div class="flex items-center gap-2"><span class="icon-sm ${result.correct?'text-mint-ink':'text-peach-ink'}">${icon(result.correct?'checkCircle':'bulb')}</span><strong class="text-[13px] ${result.correct?'text-mint-ink':'text-peach-ink'}">${result.correct?'That’s right.':'Not quite. Here’s the distinction.'}</strong></div><p>${escape(item.explanation)}</p>${item.rationales?`<div class="option-rationales"><h3>Why each option does or does not fit</h3>${item.rationales.map((r,n)=>`<p><strong>${String.fromCharCode(65+n)}${n===item.correctIndex?' · Correct':''}.</strong> ${escape(r)}</p>`).join('')}</div>`:''}<div class="flex justify-between gap-2 mt-3"><span class="text-[10px] text-muted">Correct answer: ${String.fromCharCode(65+item.correctIndex)} · Attempt ${result.attempts}</span><button class="source-link" data-action="retry-scenario">Try again ${icon('rotate')}</button></div></div>`:''}</div><div class="lesson-bottom border-t border-line px-6 py-4 flex items-center justify-between gap-2"><button class="btn" data-action="previous" ${i<=0?'disabled':''}>${icon('left')} Previous</button>${result?`<button class="btn btn-primary" data-action="next" ${i>=list.length-1?'disabled':''}>Next scenario ${icon('right')}</button>`:`<button class="btn btn-primary" data-action="check-answer" ${Number.isInteger(selected)?'':'disabled'}>Check answer ${icon('check')}</button>`}</div></article><p class="text-[10px] text-muted text-center mt-3">Practice reasoning, not memorized exam items. <kbd class="key">1–4</kbd> choose · <kbd class="key">Enter</kbd> check</p>`;
   }
   function renderRail(t) {
     if(!t)return '';
@@ -222,7 +229,7 @@
 
   function chooseTopic(id) {
     if(!course().topics.some(t=>t.id===id))return;
-    state.topicId=id;state.cardId=null;state.scenarioId=null;state.flipped=false;state.expanded.add(topic().domain);state.sidebarOpen=false;
+    state.topicId=id;state.cardId=null;state.scenarioId=null;state.flipped=false;state.expanded.add(topic().domain);state.expanded.add('CH'+(topic()?.chapter??1));state.sidebarOpen=false;
     renderAll();window.scrollTo({top:0,behavior:'instant'});
   }
   function switchMode(mode) {
@@ -240,10 +247,10 @@
     const item=list[next];state.flipped=false;state.reviewHoldId=null;
     if(state.mode==='outline'){state.topicId=item.id;state.cardId=null;state.scenarioId=null;}
     else {state.topicId=item.topic.id;if(state.mode==='flashcards')state.cardId=item.id;else state.scenarioId=item.id;}
-    state.expanded.add(topic().domain);renderAll();
+    state.expanded.add(topic().domain);state.expanded.add('CH'+(topic()?.chapter??1));renderAll();
     if(state.mode==='outline'||state.mode==='scenarios')window.scrollTo({top:0,behavior:'instant'});
   }
-  function clearFilters() {state.query='';state.domain='all';state.bookmarksOnly=false;state.cardId=null;state.scenarioId=null;renderAll();}
+  function clearFilters() {state.chapter='all';state.task='all';state.query='';state.domain='all';state.bookmarksOnly=false;state.cardId=null;state.scenarioId=null;renderAll();}
   function shuffle() {
     const items=deck();if(items.length<2){toast('Add more items to shuffle this set.');return;}
     const ids=items.map(i=>i.id);
@@ -273,8 +280,9 @@
     progress().scenarios[item.id]={choice,correct,attempts:(old?.attempts||0)+1,firstCorrect:old?old.firstCorrect:correct,updatedAt:new Date().toISOString()};
     state.retries.delete(item.id);state.reviewHoldId=item.id;renderAll();
   }
-  function modal(title,html) {DIALOG.innerHTML=`<div class="dialog-head"><h2 id="dialog-title" class="text-lg font-semibold tracking-tight">${escape(title)}</h2><button class="icon-button" data-action="close-dialog" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${html}</div>`;if(!DIALOG.open)DIALOG.showModal();}
+  function modal(title,html) {DIALOG.classList.remove('wide-dialog');DIALOG.innerHTML=`<div class="dialog-head"><h2 id="dialog-title" class="text-lg font-semibold tracking-tight">${escape(title)}</h2><button class="icon-button" data-action="close-dialog" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${html}</div>`;if(!DIALOG.open)DIALOG.showModal();}
   function showSources() {
+    if(isBook())return showBookSources();
     const c=course(),t=topic(),isBCBA=c.id==='bcba-6';
     modal('What this material is based on',`
       <div class="notice">${escape(c.provenance)}</div>
@@ -295,10 +303,10 @@
     const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
   }
   function exportBackup() {remember();downloadJSON(`study-studio-backup-${new Date().toISOString().slice(0,10)}.json`,{type:'study-studio-backup',version:1,savedAt:new Date().toISOString(),data:store});toast('Backup exported. Keep it somewhere safe.');}
-  function exportPack() {downloadJSON(`${course().id}-study-pack.json`,{schemaVersion:1,courses:[course()]});toast('Study pack exported without private progress or notes.');}
+  function exportPack() {const c={...course()};if(isBook()){delete c.reader;delete c.pageImages;}downloadJSON(`${course().id}-study-pack.json`,{schemaVersion:1,courses:[c]});toast(isBook()?'Portable study pack exported; the full source reader stays in the standalone app.':'Study pack exported without private progress or notes.');}
 
   function showEditor(edit=false) {
-    if(course().id==='bcba-6'){
+    if(course().id==='bcba-6'||isBook()){
       state.courseId='my-material';state.query='';state.domain='all';state.bookmarksOnly=false;state.scope='all';state.cardId=null;state.scenarioId=null;restorePosition();renderAll();edit=false;
     }
     const t=edit?topic():null;const sc=t?.scenario;
@@ -354,18 +362,18 @@
     const title=text(t.title,220),summary=text(t.summary,15000);if(!title.trim()||!summary.trim())throw new Error('Each topic needs a title and summary.');
     const concepts=Array.isArray(t.concepts)?t.concepts:[];if(concepts.length>60)throw new Error('Too many key ideas in a topic.');
     const cleanConcepts=concepts.map(c=>{if(!isObject(c)||typeof c.term!=='string'||typeof c.definition!=='string')throw new Error('Key ideas require a term and definition.');return {term:text(c.term,400),definition:text(c.definition,15000)};});
-    const cards=Array.isArray(t.cards)?t.cards:[];if(cards.length>100)throw new Error('Too many cards in a topic.');
-    const ids=new Set();const cleanCards=cards.map(c=>{if(!isObject(c)||!validId(c.id)||ids.has(c.id)||typeof c.question!=='string'||!c.question.trim()||typeof c.answer!=='string'||!c.answer.trim())throw new Error('Flashcards require distinct IDs, questions, and answers.');ids.add(c.id);return {id:c.id,question:text(c.question,12000),answer:text(c.answer,20000)};});
+    const cards=Array.isArray(t.cards)?t.cards:[];if(cards.length>1000)throw new Error('Too many cards in a topic.');
+    const ids=new Set();const cleanCards=cards.map(c=>{if(!isObject(c)||!validId(c.id)||ids.has(c.id)||typeof c.question!=='string'||!c.question.trim()||typeof c.answer!=='string'||!c.answer.trim())throw new Error('Flashcards require distinct IDs, questions, and answers.');ids.add(c.id);return {id:c.id,question:text(c.question,12000),answer:text(c.answer,20000),pages:cleanPages(c.pages),origin:text(c.origin,100),glossaryId:validId(c.glossaryId)?c.glossaryId:undefined};});
     let scenario=null;
-    if(t.scenario){const s=t.scenario;if(!isObject(s)||!validId(s.id)||!Array.isArray(s.options)||s.options.length!==4||s.options.some(o=>typeof o!=='string'||!o.trim())||new Set(s.options).size!==4||!Number.isInteger(s.correctIndex)||s.correctIndex<0||s.correctIndex>3||typeof s.prompt!=='string'||!s.prompt.trim()||typeof s.explanation!=='string'||!s.explanation.trim())throw new Error('A scenario needs an ID, a prompt, four distinct options, correctIndex 0–3, and an explanation.');scenario={id:s.id,prompt:text(s.prompt,15000),options:s.options.map(o=>text(o,3000)),correctIndex:s.correctIndex,explanation:text(s.explanation,20000)};}
-    return {id:t.id,title,summary,domain:t.domain,concepts:cleanConcepts,cards:cleanCards,scenario,takeaway:text(t.takeaway,6000),source:safeURL(t.source),origin:'user-imported'};
+    if(t.scenario){const s=t.scenario;if(!isObject(s)||!validId(s.id)||!Array.isArray(s.options)||s.options.length!==4||s.options.some(o=>typeof o!=='string'||!o.trim())||new Set(s.options).size!==4||!Number.isInteger(s.correctIndex)||s.correctIndex<0||s.correctIndex>3||typeof s.prompt!=='string'||!s.prompt.trim()||typeof s.explanation!=='string'||!s.explanation.trim())throw new Error('A scenario needs an ID, a prompt, four distinct options, correctIndex 0–3, and an explanation.');scenario={id:s.id,prompt:text(s.prompt,15000),options:s.options.map(o=>text(o,3000)),correctIndex:s.correctIndex,explanation:text(s.explanation,20000),rationales:Array.isArray(s.rationales)&&s.rationales.length===4?s.rationales.map(r=>text(r,6000)):undefined};}
+    return {id:t.id,title,summary,domain:t.domain,concepts:cleanConcepts,cards:cleanCards,scenario,takeaway:text(t.takeaway,6000),source:safeURL(t.source),origin:'user-imported',chapter:Number.isInteger(t.chapter)?t.chapter:undefined,chapterTitle:text(t.chapterTitle,400),section:Number.isInteger(t.section)?t.section:undefined,part:Number.isInteger(t.part)?t.part:undefined,pages:cleanPages(t.pages),tasks:Array.isArray(t.tasks)?t.tasks.filter(x=>/^[A-I]\.\d{1,2}$/.test(x)).slice(0,104):[],domains:Array.isArray(t.domains)?t.domains.filter(validId).slice(0,10):[],kind:t.kind==='glossary'?'glossary':undefined,sourceNote:text(t.sourceNote,6000)};
   }
   function validateCourse(c) {
     if(!isObject(c)||!validId(c.id)||typeof c.title!=='string'||!c.title.trim()||!Array.isArray(c.domains)||!c.domains.length||c.domains.length>40||!Array.isArray(c.topics)||c.topics.length>1000)throw new Error('A study pack requires an ID, title, 1–40 domains, and up to 1,000 topics.');
     const ids=new Set();const domains=c.domains.map(d=>{if(!isObject(d)||!validId(d.id)||ids.has(d.id)||typeof d.title!=='string'||!d.title.trim())throw new Error('Domain IDs must be distinct and each domain needs a title.');ids.add(d.id);return {id:d.id,title:text(d.title,300)};});
     const topics=c.topics.map(t=>validateTopic(t,ids));const unique=new Set();const itemIds=new Set();
     for(const t of topics){if(unique.has(t.id))throw new Error('Topic IDs must be unique within a curriculum.');unique.add(t.id);for(const x of [...t.cards,...(t.scenario?[t.scenario]:[])]){if(itemIds.has(x.id))throw new Error('Practice-item IDs must be unique within a curriculum.');itemIds.add(x.id);}}
-    return {id:c.id,title:text(c.title,200),subtitle:text(c.subtitle,300,'Imported study material'),description:text(c.description,1000,'Your imported study pack.'),provenance:text(c.provenance,6000,'User-imported material. Verify its accuracy and permissions.'),domains,topics};
+    return {id:c.id,title:text(c.title,200),subtitle:text(c.subtitle,300,'Imported study material'),description:text(c.description,1000,'Your imported study pack.'),provenance:text(c.provenance,6000,'User-imported material. Verify its accuracy and permissions.'),domains,topics,...cleanBookMetadata(c)};
   }
   function cleanProgress(p) {
     const clean=blankProgress();if(!isObject(p))return clean;
@@ -381,7 +389,7 @@
     const clean=blankStore();
     if(Array.isArray(value.customTopics)){if(value.customTopics.length>1000)throw new Error('Too many custom topics.');clean.customTopics=value.customTopics.map(t=>validateTopic(t,new Set(['1'])));}
     if(Array.isArray(value.courses)){if(value.courses.length>30)throw new Error('Too many curricula.');clean.courses=value.courses.map(validateCourse);}
-    const ids=new Set(['bcba-6','my-material']);for(const c of clean.courses){if(ids.has(c.id))throw new Error('Duplicate curriculum ID in backup.');ids.add(c.id);}
+    const ids=new Set(seed.courses.map(c=>c.id));for(const c of clean.courses){if(ids.has(c.id))throw new Error('Duplicate curriculum ID in backup.');ids.add(c.id);}
     for(const [id,p] of Object.entries(isObject(value.progress)?value.progress:{}))if(ids.has(id))clean.progress[id]=cleanProgress(p);
     const ui=isObject(value.ui)?value.ui:{};clean.ui.courseId=ids.has(ui.courseId)?ui.courseId:'bcba-6';clean.ui.mode=['outline','flashcards','scenarios'].includes(ui.mode)?ui.mode:'outline';clean.ui.large=!!ui.large;
     for(const [id,p] of Object.entries(isObject(ui.positions)?ui.positions:{}))if(ids.has(id)&&isObject(p))clean.ui.positions[id]={topicId:validId(p.topicId)?p.topicId:null,cardId:validId(p.cardId)?p.cardId:null,scenarioId:validId(p.scenarioId)?p.scenarioId:null};
@@ -390,18 +398,18 @@
   async function importFile(file) {
     if(!file)return;
     try {
-      if(file.size>5*1024*1024)throw new Error('Choose a JSON file smaller than 5 MB.');
+      if(file.size>25*1024*1024)throw new Error('Choose a JSON file smaller than 25 MB.');
       const data=parseJSON(await file.text());
       if(data.type==='study-studio-backup'){
         const clean=validateStore(data.data);
         if(!confirm('Restore this backup? It will replace the current saved progress, notes, bookmarks, and custom material in this browser.'))return;
-        store=clean;state.courseId=store.ui.courseId;state.mode=store.ui.mode;state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.orders={flashcards:[],scenarios:[]};state.drafts={};state.retries.clear();restorePosition();
+        store=clean;state.courseId=store.ui.courseId;state.mode=store.ui.mode;state.chapter='all';state.task='all';state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.orders={flashcards:[],scenarios:[]};state.drafts={};state.retries.clear();restorePosition();
         if(DIALOG.open)DIALOG.close();renderAll();toast('Backup restored.');return;
       }
       const raw=Array.isArray(data.courses)?data.courses:[data];if(!raw.length||raw.length>30)throw new Error('Import between 1 and 30 curricula.');if(store.courses.length+raw.length>30)throw new Error('This browser supports up to 30 imported curricula.');
       const incoming=raw.map(validateCourse),ids=new Set(courses().map(c=>c.id));
       for(const c of incoming){const original=c.id;let n=1;while(ids.has(c.id))c.id=`${original.slice(0,80)}-import-${n++}`;ids.add(c.id);}
-      store.courses.push(...incoming);state.courseId=incoming[0].id;state.mode='outline';state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.cardId=null;state.scenarioId=null;state.orders={flashcards:[],scenarios:[]};restorePosition();
+      store.courses.push(...incoming);state.courseId=incoming[0].id;state.mode='outline';state.chapter='all';state.task='all';state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.cardId=null;state.scenarioId=null;state.orders={flashcards:[],scenarios:[]};restorePosition();
       if(DIALOG.open)DIALOG.close();renderAll();toast(`${incoming.length} ${incoming.length===1?'curriculum':'curricula'} added to your library.`);
     } catch(error){toast(`Import failed: ${error.message}`);}finally{$('#import-file').value='';}
   }
@@ -432,7 +440,7 @@
       case 'close-dialog':DIALOG.close();break;
       case 'export-backup':exportBackup();break;case 'export-pack':exportPack();break;
       case 'import':$('#import-file').click();break;
-      case 'add-topic':showEditor(false);break;case 'edit-topic':if(course().id!=='bcba-6')showEditor(true);break;
+      case 'add-topic':showEditor(false);break;case 'edit-topic':if(course().id!=='bcba-6'&&!isBook())showEditor(true);break;
       case 'reset-progress':if(confirm(`Reset learning progress for “${course().title}”? Your notes, bookmarks, and material will be kept.`)){const p=progress();store.progress[state.courseId]={...blankProgress(),bookmarks:p.bookmarks,notes:p.notes};state.drafts={};state.retries.clear();renderAll();showSettings();toast('Learning progress reset. Notes and bookmarks were kept.');}break;
     }
   });
@@ -442,7 +450,7 @@
   });
   document.addEventListener('change',event=>{
     const el=event.target;
-    if(el.id==='course-select'){state.courseId=el.value;state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.flipped=false;state.orders={flashcards:[],scenarios:[]};state.drafts={};state.retries.clear();restorePosition();renderAll();}
+    if(el.id==='course-select'){state.courseId=el.value;state.chapter='all';state.task='all';state.query='';state.domain='all';state.scope='all';state.bookmarksOnly=false;state.flipped=false;state.orders={flashcards:[],scenarios:[]};state.drafts={};state.retries.clear();restorePosition();renderAll();}
     if(el.id==='domain-select'){state.domain=el.value;state.cardId=null;state.scenarioId=null;state.flipped=false;renderAll();}
     if(el.id==='scope-select'){state.scope=el.value;state.cardId=null;state.scenarioId=null;state.flipped=false;renderAll();}
     if(el.id==='import-file')importFile(el.files[0]);
@@ -464,5 +472,105 @@
   });
   // Clicking the native dialog's backdrop closes it; clicks within its bounds do not.
   DIALOG.addEventListener('click',event=>{if(event.target===DIALOG){const r=DIALOG.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)DIALOG.close();}});
+  // Textbook extension: keeps the original curriculum and storage namespace intact.
+  let sourcePDFURL=null, sourcePDFName='', readerPDF=20, glossaryQuery='', sourceQuery='';
+  function isBook(){return course().kind==='textbook';}
+  function cleanPages(v){if(!isObject(v))return undefined;const out={};for(const key of ['start','end','pdfStart','pdfEnd'])if(Number.isInteger(v[key])&&v[key]>=1&&v[key]<=5000)out[key]=v[key];return Object.keys(out).length===4?out:undefined;}
+  function cleanBookMetadata(c){
+    if(c.kind!=='textbook')return {};
+    const chapters=(Array.isArray(c.chapters)?c.chapters:[]).slice(0,100).filter(v=>isObject(v)&&Number.isInteger(v.number)&&v.number>0).map(v=>({number:v.number,title:text(v.title,400),start:Number(v.start)||1,end:Number(v.end)||1,summaryStart:Number(v.summaryStart)||1,part:Number(v.part)||0,partTitle:text(v.partTitle,400)}));
+    const glossary=(Array.isArray(c.glossary)?c.glossary:[]).slice(0,1000).filter(v=>isObject(v)&&validId(v.id)).map(v=>({id:v.id,term:text(v.term,500),definition:text(v.definition,20000),page:Number(v.page)||786,endPage:Number(v.endPage)||Number(v.page)||786,note:text(v.note,3000),aliasOnly:!!v.aliasOnly}));
+    const crosswalk=(Array.isArray(c.crosswalk)?c.crosswalk:[]).slice(0,104).filter(v=>isObject(v)&&/^[A-I]\.\d{1,2}$/.test(v.id)).map(v=>({id:v.id,title:text(v.title,400),domain:text(v.domain,10),status:['related','partial','not-mapped'].includes(v.status)?v.status:'not-mapped',note:text(v.note,3000),topics:Array.isArray(v.topics)?v.topics.filter(validId).slice(0,1000):[]}));
+    return {kind:'textbook',chapters,glossary,crosswalk,pageOffset:18,isbn:text(c.isbn,30)};
+  }
+  function bookArchive(){return course().reader?course():seed.courses.find(c=>c.id==='cooper-aba-3');}
+  function pageLabel(p){return p?`Printed ${p.start===p.end?'p. '+p.start:'pp. '+p.start+'–'+p.end} · PDF ${p.pdfStart===p.pdfEnd?p.pdfStart:p.pdfStart+'–'+p.pdfEnd}`:'';}
+  function bookTopicBadge(t){return `<span class="pill bg-brand-soft text-brand">${t.kind==='glossary'?'BOOK REFERENCE':'CHAPTER '+t.chapter}</span><span class="text-[10px] text-muted">${escape(t.id)}</span>`;}
+  function taskBadges(t){return `<div class="task-tags">${(t.tasks||[]).map(code=>`<button class="task-tag" data-action="book-task" data-task="${escape(code)}" title="Editorial match, not an official chapter mapping">${escape(code)}</button>`).join('')||'<span class="text-[10px] text-muted">No direct exam-task mapping</span>'}</div>`;}
+  function bookSourceLine(t){
+    return `<section class="book-source"><div class="eyebrow mb-2">TEXTBOOK SOURCE</div><p class="text-[11px] text-muted leading-relaxed">${t.chapter?`Chapter ${t.chapter} · ${escape(t.chapterTitle)}<br>`:''}${escape(pageLabel(t.pages))}</p><div class="flex items-center gap-2 flex-wrap mt-3"><button class="btn btn-text" data-action="read-source" data-pdf="${t.pages?.pdfStart||20}">${icon('source')} Read source pages</button><button class="btn btn-text" data-action="book-crosswalk">6th Edition mapping ${icon('grid')}</button></div>${taskBadges(t)}<div class="text-[9px] text-muted mt-2">${t.kind==='glossary'?'Extracted textbook definitions':'Paraphrased book notes · Scenarios are original study exercises'} · Task tags are editorial.</div>${t.sourceNote?`<div class="notice mt-3">${escape(t.sourceNote)}</div>`:''}</section>`;
+  }
+  function renderBookControls(){
+    const nav=$('#book-nav-controls'),toolbar=$('#book-toolbar');if(!nav||!toolbar)return;
+    if(!isBook()){nav.innerHTML='';toolbar.innerHTML='';return;}
+    nav.innerHTML=`<div class="book-nav-switch" role="group" aria-label="Organize book navigation"><button data-action="book-nav" data-view="chapters" class="${state.bookNav==='chapters'?'active':''}" aria-pressed="${state.bookNav==='chapters'}">Chapters</button><button data-action="book-nav" data-view="domains" class="${state.bookNav==='domains'?'active':''}" aria-pressed="${state.bookNav==='domains'}">6th Edition domains</button></div>`;
+    toolbar.innerHTML=`<section class="book-toolbar-panel"><div class="flex items-center gap-2 flex-wrap"><span class="pill bg-mint text-mint-ink">COOPER · SEPARATE COURSE</span><button class="source-link" data-action="book-crosswalk">Coverage &amp; task crosswalk ${icon('chevron')}</button></div><div class="book-control-row mt-3"><label for="chapter-select" class="sr-only">Filter textbook chapter</label><select id="chapter-select" class="select-small" aria-label="Filter textbook chapter"><option value="all">All book chapters</option>${(course().chapters||[]).map(c=>`<option value="${c.number}" ${String(c.number)===state.chapter?'selected':''}>${c.number}. ${escape(c.title)}</option>`).join('')}<option value="0" ${state.chapter==='0'?'selected':''}>Reference · Glossary</option></select><button class="btn" data-action="book-glossary">${icon('book')} Glossary</button><button class="btn" data-action="book-source-search">${icon('search')} Search book</button></div>${state.task!=='all'?`<div class="mt-3 flex items-center gap-2 flex-wrap"><span class="text-[11px] text-muted">Filtered by task ${escape(state.task)}</span><button class="filter-chip" data-action="clear-book-task">Clear task ${icon('close')}</button></div>`:''}</section>`;
+  }
+  function renderBookSidebar(list,c,p){
+    $('#filtered-count').textContent=list.length===c.topics.length?'':`${list.length} shown`;
+    const chapterGroups=[...(c.chapters||[]).map(x=>({id:'CH'+x.number,label:String(x.number).padStart(2,'0'),title:x.title,part:x.part,partTitle:x.partTitle,topics:list.filter(t=>t.chapter===x.number)})),{id:'CH0',label:'REF',title:'Glossary',topics:list.filter(t=>t.chapter===0)}];
+    const domainGroups=c.domains.map(d=>({id:d.id,label:d.id,title:d.title,topics:list.filter(t=>t.domain===d.id||t.domains?.includes(d.id))}));
+    let lastPart=-1;
+    $('#topic-nav').innerHTML=(state.bookNav==='chapters'?chapterGroups:domainGroups).map(g=>{
+      if(!g.topics.length)return '';
+      const expanded=state.expanded.has(g.id)||!!state.query,active=g.topics.some(t=>t.id===state.topicId);
+      const partLabel=state.bookNav==='chapters'&&g.part&&lastPart!==g.part?`<p class="nav-part">PART ${g.part} · ${escape(g.partTitle)}</p>`:'';lastPart=g.part;
+      return `${partLabel}<div class="mb-1"><button class="domain-row ${active?'active':''}" data-action="domain-toggle" data-id="${escape(g.id)}" aria-expanded="${expanded}"><span class="domain-letter">${escape(g.label)}</span><span class="domain-title">${escape(g.title)}</span><span class="text-[9px] text-muted">${g.topics.length}</span><span class="icon-sm text-muted">${icon(expanded?'down':'chevron')}</span></button>${expanded?`<div class="ml-3 pl-2 border-l border-line">${g.topics.map(t=>`<button class="topic-row ${state.topicId===t.id?'active':''}" data-action="topic" data-id="${escape(t.id)}" ${state.topicId===t.id?'aria-current="true"':''}><span class="topic-code">${t.chapter?t.chapter+'.'+t.section:'REF'}</span><span class="topic-text">${escape(t.title)}</span><span class="topic-status">${p.reviewed.includes(t.id)?icon('check'):p.bookmarks.includes(t.id)?icon('star'):''}</span></button>`).join('')}</div>`:''}</div>`;
+    }).join('')||'<div class="empty"><p>No book sections match these filters. Clear the filters to return to the complete book.</p></div>';
+  }
+  function renderGlossaryOutline(t){
+    return `<article class="panel"><div class="lesson-inner"><div class="flex items-center justify-between">${bookTopicBadge(t)}${bookmarkButton(t)}</div><h2 class="lesson-heading">A vocabulary you can work with.</h2><p class="reading">${(course().glossary||[]).length} glossary entries, separate from the 170 chapter lessons. Search a term, open its source page, or use Flashcards to practice the ${t.cards.length} definition cards.</p><div class="notice mt-4">These are extracted definitions from the uploaded textbook, not newly validated practice standards. Older ethics references remain historical. Cross-reference-only entries stay in the glossary but are not counted as definition cards.</div><label for="glossary-search" class="field-label mt-6">Search terms and definitions</label><input id="glossary-search" class="field" type="search" value="${escape(glossaryQuery)}" placeholder="Try motivating operation, IOA, or chaining"><div id="glossary-results">${glossaryResults()}</div>${sourceLine(t)}</div></article>`;
+  }
+  function glossaryResults(){
+    const q=glossaryQuery.toLocaleLowerCase().trim(),entries=(course().glossary||[]).filter(e=>!q||`${e.term} ${e.definition}`.toLocaleLowerCase().includes(q));
+    return `<p class="text-[11px] text-muted mt-4 mb-3">${entries.length} matches${entries.length>35?' · showing the first 35; type to narrow the list':''}</p>${entries.slice(0,35).map(e=>`<section class="glossary-entry"><h3>${escape(e.term)}</h3><p>${escape(e.definition)}</p><div class="flex gap-3 items-center flex-wrap mt-3"><button class="source-link" data-action="read-source" data-pdf="${e.page+18}">Printed p. ${e.page} ${icon('source')}</button>${!e.aliasOnly?`<button class="source-link" data-action="glossary-card" data-card="${escape(e.id+'-c1')}">Practice this definition ${icon('layers')}</button>`:''}</div>${e.term.includes('solistic')?`<p class="text-[10px]">${escape(e.note)}</p>`:''}</section>`).join('')||'<p>No glossary entries match.</p>'}`;
+  }
+  function showBookCrosswalk(){
+    const c=course(),rows=c.crosswalk||[],counts={related:0,partial:0,'not-mapped':0};rows.forEach(r=>counts[r.status]++);
+    modal('Book → BCBA 6th Edition crosswalk',`<div class="notice">This is an editorial study crosswalk, not the 5th Edition mapping printed in the book and not an official BACB endorsement. “Related” means relevant book material exists, not that the entire exam task is covered. Textbook content is never copied from your separate outline curriculum.</div><div class="crosswalk-summary"><span><strong>${counts.related}</strong> related</span><span><strong>${counts.partial}</strong> partial</span><span><strong>${counts['not-mapped']}</strong> not mapped</span></div><label class="field-label" for="crosswalk-filter">Show domain</label><select class="field" id="crosswalk-filter"><option value="all">All nine domains</option>${c.domains.filter(d=>d.id!=='REF').map(d=>`<option value="${escape(d.id)}">${escape(d.id+' · '+d.title)}</option>`).join('')}</select><div id="crosswalk-rows">${crosswalkRows('all')}</div>`);
+    DIALOG.classList.add('wide-dialog');
+  }
+  function crosswalkRows(domain){return (course().crosswalk||[]).filter(r=>domain==='all'||r.domain===domain).map(r=>`<section class="crosswalk-row"><div class="flex items-center justify-between gap-3"><h3>${escape(r.id)} · ${escape(r.title)}</h3><span class="coverage-label ${r.status}">${r.status==='not-mapped'?'Not mapped':r.status==='partial'?'Partial':'Related'}</span></div><p>${escape(r.note)}</p><div class="task-tags">${r.topics.map(id=>{const t=course().topics.find(t=>t.id===id);return t?`<button class="task-tag" data-action="crosswalk-topic" data-topic="${escape(id)}" title="${escape(t.title)}">${escape(id)} · p. ${t.pages?.start}</button>`:'';}).join('')}</div>${r.topics.length?`<button class="source-link mt-3" data-action="book-task" data-task="${escape(r.id)}">Study mapped sections ${icon('right')}</button>`:''}</section>`).join('');}
+  function showBookSources(){
+    modal('Cooper textbook · sources and coverage',`<div class="notice">${escape(course().provenance)}</div><h3>What is included</h3><p>31 chapters, 170 section-level lessons, 661 concept flashcards, 170 original multiple-choice application scenarios, 521 searchable glossary entries, and 516 extracted glossary definition cards. Lessons follow the book’s substantive table-of-contents sections; the separate source reader retains all 908 PDF pages, including chapter summaries, the epilogue, bibliography, and indexes.</p><h3>What “entire book” means here</h3><p>Every chapter and substantive table-of-contents section has study material. This is a section-level companion, not a claim that every paragraph, worked example, citation, or figure has been separately rewritten or tested. Use the source reader for the fuller treatment and the original PDF for authoritative page layout, formulas, and figures.</p><h3>Page references</h3><p>Printed numeric pages are 18 pages behind the uploaded PDF’s page index: printed p. 2 is PDF page 20. Section page ranges include a shared boundary page when another section begins on that page. Glossary cards show their own glossary page, not a guessed chapter reference.</p><h3>Two editions, kept distinct</h3><p>The book’s chapter task lists reference the 5th Edition. Its ethics chapter discusses the earlier Professional and Ethical Compliance Code. The 6th Edition labels in this app are an editorial crosswalk, and historical ethics material is flagged. Several cultural responsiveness, equity, and supervision tasks have only partial or no mapping.</p><h3>Source extraction and figures</h3><p>The source reader uses the PDF’s existing text layer, with whitespace and line breaks cleaned. Two-column ordering, mathematical notation, or scan characters can be imperfect. Fifteen selected original page images are embedded. “Connect original PDF” lets you choose your own local PDF for any other page; the file stays on your device and is linked only for the current session.</p><h3>Internal inconsistency preserved as a note</h3><p>The Chapter 16 lesson flags inconsistent wording about the behavior-altering effect in the source (pp. 374–376 and 392). It identifies the passages used without claiming a verified publisher correction.</p><h3>Your existing study work</h3><p>The original 104-topic BCBA curriculum is unchanged. Each curriculum has separate progress, notes, bookmarks, card ratings, and scenario attempts. Export a backup in the old file and restore it here when moving between files or browsers.</p><div class="flex gap-3 flex-wrap mt-4"><button class="btn btn-primary" data-action="book-crosswalk">View the crosswalk</button><button class="btn" data-action="read-source" data-pdf="15">Book contents</button><a class="btn" href="https://www.bacb.com/ethics-information/" target="_blank" rel="noopener noreferrer">Current BACB ethics resources ${icon('external')}</a></div>`);
+  }
+  function showReader(pdf){
+    const archive=bookArchive();if(!archive?.reader?.length){toast('This pack has no source archive. Open the full standalone Cooper app.');return;}
+    readerPDF=Math.min(archive.reader.length,Math.max(1,Number(pdf)||20));const p=archive.reader[readerPDF-1],img=archive.pageImages?.[String(readerPDF)];
+    const printed=p.printed?`Printed p. ${p.printed}`:'Front matter';
+    modal(`${printed} · PDF ${readerPDF} of ${archive.reader.length}`,`<div class="reader-controls"><button class="btn" data-action="source-page" data-pdf="${readerPDF-1}" ${readerPDF<=1?'disabled':''}>${icon('left')} Previous</button><form id="source-jump-form" class="reader-jump"><label for="source-jump" class="text-[11px]">Printed page</label><input id="source-jump" type="number" min="1" max="890" value="${p.printed||2}" class="field"><button class="btn" type="submit">Go</button></form><button class="btn" data-action="source-page" data-pdf="${readerPDF+1}" ${readerPDF>=archive.reader.length?'disabled':''}>Next ${icon('right')}</button></div><div class="notice mt-4">Source from your uploaded textbook, not generated lesson text. Text extraction can misorder columns or damage symbols. Use the original page image/PDF to resolve ambiguity. Historical code references are not current requirements.</div><div class="flex gap-3 items-center flex-wrap mt-4"><button class="btn" data-action="connect-pdf">${icon('book')} ${sourcePDFURL?'Change original PDF':'Connect original PDF'}</button>${sourcePDFURL?`<a class="btn btn-primary" href="${escape(sourcePDFURL+'#page='+readerPDF)}" target="_blank" rel="noopener noreferrer">Open original page ${icon('external')}</a><span class="text-[10px] text-muted">${escape(sourcePDFName)} · this session only</span>`:''}<button class="source-link" data-action="book-source-search">Search the whole book ${icon('search')}</button></div>${img?`<details class="source-image mt-4" open><summary>Original page image · ${printed}</summary><img src="${img}" alt="Original uploaded textbook page ${p.printed||readerPDF}; PDF page ${readerPDF}" loading="lazy"></details>`:''}<details class="source-text" ${img?'':'open'}><summary>Extracted source text</summary><div>${p.blocks.map(b=>`<p>${escape(b)}</p>`).join('')}</div></details>`);
+    DIALOG.classList.add('wide-dialog');DIALOG.scrollTop=0;
+  }
+  function showSourceSearch(){
+    modal('Search the full uploaded book',`<p>Search the extracted text of all 908 source pages. Results point to the original page, not a generated answer. Search is local; nothing is sent to a server.</p><form id="source-search-form" class="flex items-center gap-2"><label class="sr-only" for="source-query">Search the book</label><input id="source-query" class="field" type="search" value="${escape(sourceQuery)}" placeholder="e.g. stimulus equivalence"><button class="btn btn-primary" type="submit">Search</button></form><div class="flex gap-3 flex-wrap mt-4"><button class="source-link" data-action="source-page" data-pdf="15">Contents</button><button class="source-link" data-action="source-page" data-pdf="803">Epilogue</button><button class="source-link" data-action="source-page" data-pdf="804">Glossary</button><button class="source-link" data-action="source-page" data-pdf="822">Bibliography</button><button class="source-link" data-action="source-page" data-pdf="898">Subject index</button></div><div id="source-results"></div>`);
+    DIALOG.classList.add('wide-dialog');if(sourceQuery)renderSourceResults();$('#source-query').focus();
+  }
+  function renderSourceResults(){
+    const q=sourceQuery.trim().toLocaleLowerCase(),root=$('#source-results');if(!root)return;
+    if(q.length<2){root.innerHTML='<p>Enter at least two characters.</p>';return;}
+    const hits=(bookArchive()?.reader||[]).flatMap(p=>{const b=p.blocks.find(b=>b.toLocaleLowerCase().includes(q));return b?[{...p,match:b}]:[];});
+    root.innerHTML=`<p>${hits.length} matching pages${hits.length>60?' · first 60 shown; refine the search for more specific results':''}</p>${hits.slice(0,60).map(p=>{const start=Math.max(0,p.match.toLocaleLowerCase().indexOf(q)-75),snippet=p.match.slice(start,start+400);return `<section class="glossary-entry"><button class="source-link" data-action="source-page" data-pdf="${p.pdf}">${p.printed?'Printed p. '+p.printed:'Front matter'} · PDF ${p.pdf} ${icon('right')}</button><p>${start?'…':''}${escape(snippet)}${p.match.length>start+400?'…':''}</p></section>`;}).join('')}`;
+  }
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('[data-action]');if(!el||el.disabled)return;
+    switch(el.dataset.action){
+      case 'book-nav':state.bookNav=el.dataset.view;renderAll();break;
+      case 'book-crosswalk':showBookCrosswalk();break;
+      case 'book-task':if(DIALOG.open)DIALOG.close();state.task=el.dataset.task;state.chapter='all';state.domain='all';state.query='';state.bookmarksOnly=false;state.scope='all';state.cardId=null;state.scenarioId=null;renderAll();break;
+      case 'clear-book-task':state.task='all';renderAll();break;
+      case 'crosswalk-topic':if(DIALOG.open)DIALOG.close();state.chapter='all';state.task='all';state.domain='all';state.query='';state.bookmarksOnly=false;state.scope='chapter';chooseTopic(el.dataset.topic);break;
+      case 'book-glossary':state.chapter='0';state.task='all';state.domain='all';state.query='';state.bookmarksOnly=false;state.scope='topic';state.mode='outline';chooseTopic('REF.GLOSSARY');break;
+      case 'glossary-card':state.scope='topic';state.mode='flashcards';state.cardId=el.dataset.card;state.flipped=false;renderAll();break;
+      case 'read-source':case 'source-page':showReader(el.dataset.pdf);break;
+      case 'book-source-search':showSourceSearch();break;
+      case 'connect-pdf':$('#source-pdf-file').click();break;
+    }
+  });
+  document.addEventListener('input',e=>{if(e.target.id==='glossary-search'){glossaryQuery=e.target.value;$('#glossary-results').innerHTML=glossaryResults();}});
+  document.addEventListener('change',e=>{
+    const el=e.target;
+    if(el.id==='chapter-select'){state.chapter=el.value;state.task='all';state.cardId=null;state.scenarioId=null;state.flipped=false;renderAll();}
+    if(el.id==='crosswalk-filter')$('#crosswalk-rows').innerHTML=crosswalkRows(el.value);
+    if(el.id==='source-pdf-file'){
+      const file=el.files?.[0];if(!file)return;
+      if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){toast('Choose a PDF file.');return;}
+      if(sourcePDFURL)URL.revokeObjectURL(sourcePDFURL);sourcePDFURL=URL.createObjectURL(file);sourcePDFName=file.name;showReader(readerPDF);el.value='';
+    }
+  });
+  document.addEventListener('submit',e=>{
+    if(e.target.id==='source-jump-form'){e.preventDefault();showReader(Number($('#source-jump').value)+18);}
+    if(e.target.id==='source-search-form'){e.preventDefault();sourceQuery=$('#source-query').value;renderSourceResults();}
+  });
+
   restorePosition();renderShell();
 })();

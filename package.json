@@ -1,15 +1,19 @@
 {
-  "name":"study-studio-tailwind",
-  "version":"1.0.0",
-  "private":true,
-  "description":"Offline Tailwind study app: outline, flashcards, and original scenarios.",
-  "type":"module",
-  "scripts":{
-    "build":"node scripts/build.mjs",
-    "start":"node scripts/serve.mjs",
-    "dev":"node scripts/build.mjs && node scripts/serve.mjs",
-    "test":"node --test tests/content.test.mjs"
+  "name": "study-studio-tailwind",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Offline Tailwind study app with isolated BCBA outline and Cooper textbook curricula",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
-  "devDependencies":{"tailwindcss":"4.1.10"},
-  "engines":{"node":">=20"}
+  "devDependencies": {
+    "tailwindcss": "4.1.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

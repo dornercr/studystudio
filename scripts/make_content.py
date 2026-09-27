@@ -679,6 +679,10 @@ custom={'id':'my-material','title':'My study material','subtitle':'Your own note
  'description':'Create a topic or import a JSON study pack. Nothing is sent to a server.',
  'provenance':'User-authored material. Accuracy and permissions are the responsibility of its author.',
  'domains':[{'id':'1','title':'My topics'}],'topics':[]}
-pack={'schemaVersion':1,'courses':[course,custom]}
+# Only rebuild the original outline; retain the separate textbook and other bundled packs.
+existing_path=ROOT/'src/content.json'
+existing=json.loads(existing_path.read_text()) if existing_path.exists() else {'courses':[]}
+other=[c for c in existing.get('courses',[]) if c.get('id') not in ('bcba-6','my-material')]
+pack={'schemaVersion':1,'courses':[course,*other,custom]}
 (ROOT/'src/content.json').write_text(json.dumps(pack,ensure_ascii=False,indent=2))
 print('Created',len(course['topics']),'topics,',sum(len(t['cards']) for t in course['topics']),'cards,',len(course['topics']),'scenarios')
